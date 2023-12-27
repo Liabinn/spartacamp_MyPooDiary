@@ -1,8 +1,11 @@
+import Link from 'next/link'
 import React from 'react'
 
 const NavBar = () => {
   return (
-    <div>NavBar</div>
+    <nav>
+      <Link href="/login">LOGIN</Link>
+    </nav>
   )
 }
 
