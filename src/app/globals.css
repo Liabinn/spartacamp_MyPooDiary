@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 :root {
-  --primaryColor: #00A9FF;
-  --secondaryColor: #C1EAFF;
+  /* Colors */
+  --primaryColor: #00a9ff;
+  --secondaryColor: #c1eaff;
   --accentColor: #f3fbff;
+
+  /* Font Sizes */
+  --h1: 4.257rem;
+  --h2: 3.784rem;
+  --h3: 3.364rem;
+  --h4: 2.99rem;
+  --h5: 2.658rem;
+  --h6: 2.363rem;
+  --p: 2.1rem;
+  --small: 1.867rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -17,8 +28,8 @@
 } */
 
 @font-face {
-  font-family: 'YeongdeokSea';
-  src: url('/font/Yeongdeok Sea.ttf');
+  font-family: "YeongdeokSea";
+  src: url("/font/Yeongdeok Sea.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -127,6 +138,9 @@ section {
   display: block;
 }
 body {
+  /* 스크린 사이즈 및 가운데 정렬 추가 */
+  max-width: 1200px;
+  margin: 0 auto;
   line-height: 1;
 }
 ol,
@@ -141,7 +155,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -165,5 +179,6 @@ html {
   box-sizing: border-box;
 }
 body * {
-  font-family: 'YeongdeokSea';
+  font-family: "YeongdeokSea";
+  font-size: var(--p);
 }
