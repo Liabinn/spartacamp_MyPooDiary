@@ -1,32 +1,34 @@
 "use client";
-import styled from "styled-components";
+
+import tw from "tailwind-styled-components";
 
 const ProfilePage = () => {
   return (
     <Container>
       <Avatar src="../../../assets/defaultAvatar.JPG" />
-      <h2>화장실 급해요</h2>
-      <p>ddongssaja</p>
+      <Nickname>화장실 급해요</Nickname>
+      <Id>ddongssaja</Id>
     </Container>
   );
 };
-const Avatar = styled.img`
-  margin: 2.5rem;
-  width: 10rem;
-  border-radius: 50%;
+const Avatar = tw.img`
+  my-8
+  w-36
+  rounded-full
 `;
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  & h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  & p {
-    color: gray;
-  }
+const Container = tw.div`
+  flex
+  flex-col
+  justify-center
+  items-center
+
+`;
+const Nickname = tw.h2`
+  mb-8
+`;
+const Id = tw.p`
+text-gray-400
+text-lg
 `;
 
 export default ProfilePage;
