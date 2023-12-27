@@ -1,9 +1,9 @@
-import React from 'react'
-
 const ProfilePage = () => {
   return (
-    <div>ProfilePage</div>
-  )
-}
+    <div>
+      <img src="../../../assets/defaultAvatar.JPG" />
+    </div>
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;
