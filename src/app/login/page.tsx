@@ -29,13 +29,7 @@ const LoginPage = () => {
   // 회원가입 시 db에 값 넣어주기
   const handleDoSignUp = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/users",{
-        userid: "",
-        password: "",
-        passwordCheck: "",
-        nickname: "",
-        check: false,
-      });
+      const response = await axios.get("http://localhost:3000/users",);
       console.log(response)
     } catch (error) {
       console.log(error)
