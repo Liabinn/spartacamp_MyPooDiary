@@ -17,9 +17,11 @@ export const Title = tw.h1`
 export const SubTitle = tw.h3`
   text-2xl
 `;
-// section 전체를 감싸는 컨테이너
-export const SectionContainer = tw.div`
+// section 전체를 감싸는 컨테이너(form)
+export const SectionContainer = tw.form`
   px-20
+  flex
+  flex-col
 `;
 // input 각각을 감싸는 section
 export const Section = tw.section`
@@ -61,6 +63,7 @@ export const SignLoginBtn = tw.button`
   h-20
   rounded-2xl
   m-auto
+  mb-8
 `;
 // 로그인, 회원가입 토글 버튼 스타일
 export const ToggleBtn = tw.button`
