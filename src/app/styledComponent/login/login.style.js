@@ -54,7 +54,7 @@ export const InputValueValidation = tw.p`
 `;
 // 로그인, 회원가입 할 때 버튼 스타일
 export const SignLoginBtn = tw.button`
-  bg-[var(--primaryColor)]
+  bg-[var(--secondaryColor)]
   text-white
   font-bold
   w-60

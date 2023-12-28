@@ -1,10 +1,39 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import * as St from '../styledComponent/login/login.style'
 import Spacer from '@/components/ui/Spacer'
 
 const LoginPage = () => {
+
+  // 로그인-회원가입 toggle state
+  const [loginToggle, setLoginToggle] = useState(true);
+  const handleOnClickToggle = () => setLoginToggle(prev => !prev)
+
   return (
     <div className='width-120'>
+      {loginToggle === true ? (
+      <St.SignLoginContainer>
+        <Spacer y={20} />
+        <St.Title>로그인</St.Title>
+        <St.SubTitle>로그인하여 화장실 리뷰와 나만의 일지를 작성해보세요!</St.SubTitle>
+        <Spacer y={20} />
+        <hr />
+        <Spacer y={20} />
+        <St.SectionContainer>
+          <St.Section>
+            <St.Label htmlFor='login_id'>ID</St.Label>
+            <St.Input id='login_id' placeholder='아이디는 4~10글자입니다.' />
+          </St.Section>
+          <St.Section>
+            <St.Label htmlFor='login_pw'>PASSWORD</St.Label>
+            <St.Input id='login_pw' placeholder='비밀번호는 8~20글자입니다.' />
+          </St.Section>
+        </St.SectionContainer>
+        <St.SignLoginBtn>로그인</St.SignLoginBtn>
+        <St.ToggleBtn onClick={()=>handleOnClickToggle()}>회원가입</St.ToggleBtn>
+        <Spacer y={20} />
+      </St.SignLoginContainer>
+      ) : (
       <St.SignLoginContainer>
         <Spacer y={20} />
         <St.Title>회원가입</St.Title>
@@ -42,30 +71,10 @@ const LoginPage = () => {
           </St.Section>
         </St.SectionContainer>
         <St.SignLoginBtn>회원가입</St.SignLoginBtn>
-        <St.ToggleBtn>로그인</St.ToggleBtn>
+        <St.ToggleBtn onClick={()=>handleOnClickToggle()}>로그인</St.ToggleBtn>
         <Spacer y={20} />
       </St.SignLoginContainer>
-      <St.SignLoginContainer>
-        <Spacer y={20} />
-        <St.Title>로그인</St.Title>
-        <St.SubTitle>로그인하여 화장실 리뷰와 나만의 일지를 작성해보세요!</St.SubTitle>
-        <Spacer y={20} />
-        <hr />
-        <Spacer y={20} />
-        <St.SectionContainer>
-          <St.Section>
-            <St.Label htmlFor='login_id'>ID</St.Label>
-            <St.Input id='login_id' placeholder='아이디는 4~10글자입니다.' />
-          </St.Section>
-          <St.Section>
-            <St.Label htmlFor='login_pw'>PASSWORD</St.Label>
-            <St.Input id='login_pw' placeholder='비밀번호는 8~20글자입니다.' />
-          </St.Section>
-        </St.SectionContainer>
-        <St.SignLoginBtn>로그인</St.SignLoginBtn>
-        <St.ToggleBtn>회원가입</St.ToggleBtn>
-        <Spacer y={20} />
-      </St.SignLoginContainer>
+      )}
     </div>
   )
 }
