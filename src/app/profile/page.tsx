@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/common/button/Button";
+import axios from "axios";
 import moment from "moment";
 import { useState } from "react";
 import "react-calendar/dist/Calendar.css";
@@ -12,17 +13,40 @@ const ProfilePage = () => {
   const toiletNumberArr = ["0", " 1", " 2", " 3", "4", "5"];
   //화장실 간 횟수 usestate
   const [toiletNumber, setToiletNumber] = useState("");
-
   //쾌변 컨디션 배열
   const conditionArr = ["😄", "😐", "😣", "😫"];
   //쾌변 컨디션 useState
   const [condition, setCondition] = useState("");
-
   //식단 useState
   const [meal, setMeal] = useState("");
-
   //가상의 데이터 유무에 따른 일지 양식
-  const [diary, setDiary] = useState(true);
+  const [writeDiary, setWriteDiary] = useState(false);
+  //수정상태
+  const [isEdit, setIseEit] = useState(false);
+  //일기 목록
+  const [diary, setDiary] = useState(null);
+  //일기 추가 로직
+  const addDiaryhandle = () => {
+    if (toiletNumber && condition && meal) {
+      const newDiary = { toiletNumber, condition, meal };
+      const addDiary = async () => {
+        try {
+          const response = await axios.post(
+            "http://localhost:4000/diary",
+            newDiary
+          );
+          alert("일기가 추가되었습니다.");
+          setWriteDiary(true);
+        } catch {
+          alert("오류가 발생하였습니다.");
+        }
+      };
+      addDiary();
+    } else {
+      alert("모두 입력해주세요");
+    }
+  };
+
   return (
     <St.Container>
       <St.Avatar src="../../../assets/defaultAvatar.JPG" />
@@ -32,11 +56,17 @@ const ProfilePage = () => {
       <St.StyleCalendar locale="en" onChange={onChange} value={value} />
 
       <St.DiaryContainer>
-        <St.Title>{diary ? "쾌변일지" : "쾌변일지 작성"}</St.Title>
+        <St.Title>
+          {writeDiary
+            ? isEdit
+              ? "쾌변일지 수정"
+              : "쾌변일지"
+            : "쾌변일지 작성"}
+        </St.Title>
         <St.Date>{moment(value).format("YYYY.MM.DD")}</St.Date>
         <St.QuestionContainer>
           <div>오늘 화장실 간 횟수</div>
-          {diary ? (
+          {writeDiary ? (
             <St.InputWrap>3</St.InputWrap>
           ) : (
             <St.InputWrap>
@@ -45,8 +75,8 @@ const ProfilePage = () => {
                   <St.RadioSelect key={i}>
                     <input
                       type="radio"
-                      name="toiletNumber"
-                      value={toiletNumber}
+                      name={toiletNumber}
+                      value={item}
                       onChange={(e) => setToiletNumber(e.target.value)}
                     />
                     &nbsp; {item}
@@ -57,7 +87,7 @@ const ProfilePage = () => {
           )}
 
           <p>오늘의 쾌변 컨디션</p>
-          {diary ? (
+          {writeDiary ? (
             <St.InputWrap>😐</St.InputWrap>
           ) : (
             <St.InputWrap>
@@ -66,8 +96,8 @@ const ProfilePage = () => {
                   <St.RadioSelect key={i}>
                     <input
                       type="radio"
-                      name="condition"
-                      value={condition}
+                      name={condition}
+                      value={item}
                       onChange={(e) => setCondition(e.target.value)}
                     />
                     &nbsp; {item}
@@ -78,7 +108,7 @@ const ProfilePage = () => {
           )}
 
           <p>오늘의 식단</p>
-          {diary ? (
+          {writeDiary ? (
             <St.InputWrap>burger</St.InputWrap>
           ) : (
             <St.Meal
@@ -88,13 +118,13 @@ const ProfilePage = () => {
             />
           )}
         </St.QuestionContainer>
-        {diary ? (
+        {writeDiary ? (
           <St.ButtonContainer>
             <Button text="수정하기" handler={() => {}}></Button>
             <Button text="삭제하기" handler={() => {}}></Button>
           </St.ButtonContainer>
         ) : (
-          <Button text="작성완료" handler={() => {}}></Button>
+          <Button text="작성완료" handler={addDiaryhandle}></Button>
         )}
       </St.DiaryContainer>
     </St.Container>
