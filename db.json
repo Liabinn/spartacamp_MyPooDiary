@@ -1,0 +1,11 @@
+{
+  "diary": [
+    {
+      "id": 1,
+      "toiletNumber": 3,
+      "condition": "😐",
+      "meal": "피자",
+      "date": "2023.12.08"
+    }
+  ]
+}

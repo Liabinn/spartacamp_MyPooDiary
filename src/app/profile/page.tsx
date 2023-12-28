@@ -1,134 +1,104 @@
 "use client";
-import Diary from "@/components/profile/diary";
+import Button from "@/components/common/button/Button";
 import moment from "moment";
 import { useState } from "react";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import styled from "styled-components";
-import tw from "tailwind-styled-components";
+import * as St from "./StyleProfile";
+import { Value } from "./model/profile";
 const ProfilePage = () => {
   // useState 훅의 초기값으로 현재 날짜를 넣어줌
-  const [today, setToday] = useState(new Date());
+  const [value, onChange] = useState<Value>(new Date());
+  //화장실 간 횟수 배열
+  const toiletNumberArr = ["0", " 1", " 2", " 3", "4", "5"];
+  //화장실 간 횟수 usestate
+  const [toiletNumber, setToiletNumber] = useState("");
 
-  // onChange 이벤트에 넣어줘서 날짜가 지날 때마다 today값이 업데이트 되도록 구현
-  const onChangeToday = () => {
-    setToday(today);
-  };
+  //쾌변 컨디션 배열
+  const conditionArr = ["😄", "😐", "😣", "😫"];
+  //쾌변 컨디션 useState
+  const [condition, setCondition] = useState("");
+
+  //식단 useState
+  const [meal, setMeal] = useState("");
+
+  //가상의 데이터 유무에 따른 일지 양식
+  const [diary, setDiary] = useState(true);
   return (
-    <Container>
-      <Avatar src="../../../assets/defaultAvatar.JPG" />
-      <Nickname>화장실 급해요</Nickname>
-      <Id>ddongssaja</Id>
+    <St.Container>
+      <St.Avatar src="../../../assets/defaultAvatar.JPG" />
+      <St.Nickname>화장실 급해요</St.Nickname>
+      <St.Id>ddongssaja</St.Id>
 
-      <StyleCalendar locale="en" onChange={onChangeToday} value={today} />
-      <p>{moment(today).format("YYYY.MM.DD")} </p>
+      <St.StyleCalendar locale="en" onChange={onChange} value={value} />
 
-      <Diary />
-    </Container>
+      <St.DiaryContainer>
+        <St.Title>{diary ? "쾌변일지" : "쾌변일지 작성"}</St.Title>
+        <St.Date>{moment(value).format("YYYY.MM.DD")}</St.Date>
+        <St.QuestionContainer>
+          <div>오늘 화장실 간 횟수</div>
+          {diary ? (
+            <St.InputWrap>3</St.InputWrap>
+          ) : (
+            <St.InputWrap>
+              {toiletNumberArr.map((item: string, i) => {
+                return (
+                  <St.RadioSelect key={i}>
+                    <input
+                      type="radio"
+                      name="toiletNumber"
+                      value={toiletNumber}
+                      onChange={(e) => setToiletNumber(e.target.value)}
+                    />
+                    &nbsp; {item}
+                  </St.RadioSelect>
+                );
+              })}
+            </St.InputWrap>
+          )}
+
+          <p>오늘의 쾌변 컨디션</p>
+          {diary ? (
+            <St.InputWrap>😐</St.InputWrap>
+          ) : (
+            <St.InputWrap>
+              {conditionArr.map((item: string, i) => {
+                return (
+                  <St.RadioSelect key={i}>
+                    <input
+                      type="radio"
+                      name="condition"
+                      value={condition}
+                      onChange={(e) => setCondition(e.target.value)}
+                    />
+                    &nbsp; {item}
+                  </St.RadioSelect>
+                );
+              })}
+            </St.InputWrap>
+          )}
+
+          <p>오늘의 식단</p>
+          {diary ? (
+            <St.InputWrap>burger</St.InputWrap>
+          ) : (
+            <St.Meal
+              placeholder="오늘 먹은 것을 입력해주세요"
+              value={meal}
+              onChange={(e) => setMeal(e.target.value)}
+            />
+          )}
+        </St.QuestionContainer>
+        {diary ? (
+          <St.ButtonContainer>
+            <Button text="수정하기" handler={() => {}}></Button>
+            <Button text="삭제하기" handler={() => {}}></Button>
+          </St.ButtonContainer>
+        ) : (
+          <Button text="작성완료" handler={() => {}}></Button>
+        )}
+      </St.DiaryContainer>
+    </St.Container>
   );
 };
-const Avatar = tw.img`
-  my-8
-  w-36
-  rounded-full
-`;
-const Container = tw.div`
-  flex
-  flex-col
-  justify-center
-  items-center
-`;
-const Nickname = tw.h2`
-  mb-8
-`;
-const Id = tw.p`
-  text-gray-400
-  text-lg
-`;
-// const StyleCalendar = tw(Calendar)`
-// w-5/6
-// .react-calender {
-//   w-5/6
-// }
-// .react-calender__month-view__weekdays__weekday {
-//   text-sm
-// }
-// `;
-const StyleCalendar = styled(Calendar)`
-  width: 90%;
-  max-width: 70rem;
-  height: fit-content;
-  font-size: small;
-  padding: 1rem;
-  padding-top: 0;
-  background-color: var(--secondaryColor);
-  border: none;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  .react-calendar__navigation {
-    height: 7rem;
-    margin-bottom: 0.5rem;
-    @media screen and (max-width: 400px) {
-      height: 5rem;
-    }
-  }
-  .react-calendar__navigation__label {
-    font-size: 2rem;
-    @media screen and (max-width: 400px) {
-      span {
-        font-size: 1.5rem;
-      }
-    }
-  }
-  .react-calendar__navigation button:disabled {
-  }
-
-  .react-calendar__navigation button:enabled:hover,
-  .react-calendar__navigation button:enabled:focus {
-    background-color: transparent;
-  }
-
-  .react-calendar__tile {
-    display: flex;
-    height: 7rem;
-    text-align: start;
-    background-color: white;
-    border: 0.2rem solid var(--secondaryColor);
-    border-radius: 0.5rem;
-    :hover {
-      background-color: pink;
-    }
-    abbr {
-      font-size: 1.5rem;
-    }
-    @media screen and (max-width: 400px) {
-      height: 4rem;
-      abbr {
-        font-size: 1.2rem;
-      }
-    }
-  }
-  .react-calendar__tile:enabled:hover {
-    background: #ffe3e7;
-  }
-  .react-calendar__tile:enabled:focus,
-  .react-calendar__tile--active {
-    background: pink;
-    border-radius: 0.5rem;
-  }
-
-  .react-calendar__month-view__weekdays {
-    abbr {
-      // 텍스트 부분
-      font-size: 1.8rem;
-      @media screen and (max-width: 400px) {
-        font-size: 1rem;
-      }
-    }
-  }
-  .react-calendar__month-view__weekdays__weekday {
-    padding: 0.3rem;
-  }
-`;
 
 export default ProfilePage;
