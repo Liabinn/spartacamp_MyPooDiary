@@ -1,14 +1,18 @@
 import React from "react";
 import Link from "next/link";
-import Button from "../common/button/Button";
+import Image from "next/image";
 
 const MemberSection = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div>
+      <Image
+        src="/images/image.jpg"
+        width={300}
+        height={300}
+        alt="이미지"
+      ></Image>
       <h1>로그인 하시면 나의 쾌변일지를 작성할 수 있습니다.</h1>
-      <Link href="/login">
-        <Button text="로그인" handler={() => {}}></Button>
-      </Link>
+      <Link href="/login"></Link>
     </div>
   );
 };
