@@ -1,16 +1,17 @@
 {
   "diary": [
     {
-      "id": 1,
-      "toiletNumber": 3,
+      "id": "1",
+      "toiletNumber": "3",
       "condition": "😐",
       "meal": "피자",
       "date": "2023.12.08"
     },
     {
-      "toiletNumber": " 3",
+      "toiletNumber": "0",
       "condition": "😐",
-      "meal": "짬뽕",
+      "meal": "햄버거",
+      "date": "2023.12.15",
       "id": 2
     }
   ]

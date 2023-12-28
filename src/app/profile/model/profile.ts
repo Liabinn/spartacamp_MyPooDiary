@@ -6,6 +6,23 @@ export type Diary = {
   meal: string;
   date: string;
 };
+
+export type GetDiary = {
+  id: string;
+  toiletNumber: string;
+  condition: string;
+  meal: string;
+  date: string;
+};
+export type dateDiary =
+  | {
+      id: string;
+      toiletNumber: string;
+      condition: string;
+      meal: string;
+      date: string;
+    }
+  | undefined;
 //   "id": 1,
 //     "toiletNumber": 3,
 //     "condition": "😐",

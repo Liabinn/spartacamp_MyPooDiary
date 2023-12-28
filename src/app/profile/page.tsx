@@ -2,10 +2,10 @@
 import Button from "@/components/common/button/Button";
 import axios from "axios";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import * as St from "./StyleProfile";
-import { Value } from "./model/profile";
+import { GetDiary, Value } from "./model/profile";
 const ProfilePage = () => {
   // useState 훅의 초기값으로 현재 날짜를 넣어줌
   const [value, onChange] = useState<Value>(new Date());
@@ -20,15 +20,17 @@ const ProfilePage = () => {
   //식단 useState
   const [meal, setMeal] = useState("");
   //가상의 데이터 유무에 따른 일지 양식
-  const [writeDiary, setWriteDiary] = useState(false);
+  const [writeDiary, setWriteDiary] = useState(true);
   //수정상태
   const [isEdit, setIseEit] = useState(false);
+  //날짜 형태 포맷
+  const formatDate = moment(value).format("YYYY.MM.DD");
   //일기 목록
-  const [diary, setDiary] = useState(null);
+  const [diarys, setDiarys] = useState([]);
   //일기 추가 로직
   const addDiaryhandle = () => {
     if (toiletNumber && condition && meal) {
-      const newDiary = { toiletNumber, condition, meal };
+      const newDiary = { toiletNumber, condition, meal, date: formatDate };
       const addDiary = async () => {
         try {
           const response = await axios.post(
@@ -46,6 +48,24 @@ const ProfilePage = () => {
       alert("모두 입력해주세요");
     }
   };
+  //일기 읽어오기
+  const fetchDiary = async () => {
+    const { data } = await axios.get("http://localhost:4000/diary");
+    setDiarys(data);
+  };
+
+  useEffect(() => {
+    fetchDiary();
+  }, []);
+  // 해당 날짜 일기 불러오기
+
+  const dateDiary = diarys.find((one: GetDiary) => {
+    if (!one) {
+      return setWriteDiary(false);
+    } else {
+      return formatDate === one.date;
+    }
+  });
 
   return (
     <St.Container>
@@ -63,11 +83,11 @@ const ProfilePage = () => {
               : "쾌변일지"
             : "쾌변일지 작성"}
         </St.Title>
-        <St.Date>{moment(value).format("YYYY.MM.DD")}</St.Date>
+        <St.Date>{formatDate}</St.Date>
         <St.QuestionContainer>
           <div>오늘 화장실 간 횟수</div>
           {writeDiary ? (
-            <St.InputWrap>3</St.InputWrap>
+            <St.InputWrap>{dateDiary?.toiletNumber}</St.InputWrap>
           ) : (
             <St.InputWrap>
               {toiletNumberArr.map((item: string, i) => {
@@ -88,7 +108,7 @@ const ProfilePage = () => {
 
           <p>오늘의 쾌변 컨디션</p>
           {writeDiary ? (
-            <St.InputWrap>😐</St.InputWrap>
+            <St.InputWrap>{dateDiary?.condition}</St.InputWrap>
           ) : (
             <St.InputWrap>
               {conditionArr.map((item: string, i) => {
@@ -109,7 +129,7 @@ const ProfilePage = () => {
 
           <p>오늘의 식단</p>
           {writeDiary ? (
-            <St.InputWrap>burger</St.InputWrap>
+            <St.InputWrap>{dateDiary?.meal}</St.InputWrap>
           ) : (
             <St.Meal
               placeholder="오늘 먹은 것을 입력해주세요"
