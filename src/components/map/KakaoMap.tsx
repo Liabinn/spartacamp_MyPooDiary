@@ -29,7 +29,7 @@ const KakaoMap = () => {
     if (!map) return;
     const ps = new window.kakao.maps.services.Places();
 
-    ps.keywordSearch("제주도 화장실", (data: [{}], status: string) => {
+    ps.keywordSearch("은평구 화장실", (data: [{}], status: string) => {
       console.log("데이터 배열", data);
       console.log("상태 string", status);
       if (status === window.kakao.maps.services.Status.OK) {
