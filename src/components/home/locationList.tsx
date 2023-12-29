@@ -6,7 +6,7 @@ import {
   StTab,
   StTabContainer,
   StListContainer
-} from "@/styled-component/home/StLocationList";
+} from "@/app/styledComponents/home/StLocationList";
 import React from "react";
 
 const LocationList = () => {

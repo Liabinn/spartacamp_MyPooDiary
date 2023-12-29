@@ -1,5 +1,5 @@
 import React from "react";
-import { StFooter } from "@/styled-component/layout/StFooter";
+import { StFooter } from "@/app/styledComponents/layout/StFooter";
 
 const Footer = () => {
   return (
