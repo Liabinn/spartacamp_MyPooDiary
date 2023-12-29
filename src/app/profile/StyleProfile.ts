@@ -64,7 +64,6 @@ bg-white
 h-20
 flex
 items-center
-pl-2
 rounded-2xl
 w-[50rem]
 `;
@@ -139,7 +138,7 @@ export const StyleCalendar = styled(Calendar)`
   .react-calendar__tile--now {
     background: var(--primaryColor);
   }
-  /*hover, focus 시 */
+  /* hover,focus 시  */
   .react-calendar__tile--now:enabled:hover,
   .react-calendar__tile--now:enabled:focus {
     background: pink;

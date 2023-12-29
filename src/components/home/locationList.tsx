@@ -1,13 +1,12 @@
 import {
-  StListWrapper,
-  StPlaceName,
   StAddress,
   StGender,
+  StListContainer,
+  StListWrapper,
+  StPlaceName,
   StTab,
-  StTabContainer,
-  StListContainer
-} from "@/styled-component/home/StLocationList";
-import React from "react";
+  StTabContainer
+} from "@/app/styledComponent/home/StLocationList";
 
 const LocationList = () => {
   return (

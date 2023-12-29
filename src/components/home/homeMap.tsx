@@ -1,6 +1,5 @@
-import React from "react";
+import { StHomeMap } from "@/app/styledComponent/home/StHomeMap";
 import KakaoMap from "../map/KakaoMap";
-import { StHomeMap } from "@/styled-component/home/StHomeMap";
 
 const HomeMap = () => {
   return (

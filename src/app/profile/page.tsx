@@ -20,7 +20,7 @@ const ProfilePage = () => {
   //식단 useState
   const [meal, setMeal] = useState("");
   //가상의 데이터 유무에 따른 일지 양식
-  const [writeDiary, setWriteDiary] = useState(true);
+  const [writeDiary, setWriteDiary] = useState(false);
   //수정상태
   const [isEdit, setIseEit] = useState(false);
   //날짜 형태 포맷
@@ -34,7 +34,7 @@ const ProfilePage = () => {
       const addDiary = async () => {
         try {
           const response = await axios.post(
-            "http://localhost:4000/diary",
+            "http://localhost:4001/diary",
             newDiary
           );
           alert("일기가 추가되었습니다.");
@@ -50,7 +50,7 @@ const ProfilePage = () => {
   };
   //일기 읽어오기
   const fetchDiary = async () => {
-    const { data } = await axios.get("http://localhost:4000/diary");
+    const { data } = await axios.get("http://localhost:4001/diary");
     setDiarys(data);
   };
 
@@ -60,11 +60,7 @@ const ProfilePage = () => {
   // 해당 날짜 일기 불러오기
 
   const dateDiary = diarys.find((one: GetDiary) => {
-    if (!one) {
-      return setWriteDiary(false);
-    } else {
-      return formatDate === one.date;
-    }
+    return formatDate === one.date;
   });
 
   return (
@@ -87,7 +83,7 @@ const ProfilePage = () => {
         <St.QuestionContainer>
           <div>오늘 화장실 간 횟수</div>
           {writeDiary ? (
-            <St.InputWrap>{dateDiary?.toiletNumber}</St.InputWrap>
+            <St.InputWrap>&nbsp; {dateDiary?.toiletNumber}</St.InputWrap>
           ) : (
             <St.InputWrap>
               {toiletNumberArr.map((item: string, i) => {
@@ -108,7 +104,7 @@ const ProfilePage = () => {
 
           <p>오늘의 쾌변 컨디션</p>
           {writeDiary ? (
-            <St.InputWrap>{dateDiary?.condition}</St.InputWrap>
+            <St.InputWrap>&nbsp; {dateDiary?.condition}</St.InputWrap>
           ) : (
             <St.InputWrap>
               {conditionArr.map((item: string, i) => {
@@ -129,7 +125,7 @@ const ProfilePage = () => {
 
           <p>오늘의 식단</p>
           {writeDiary ? (
-            <St.InputWrap>{dateDiary?.meal}</St.InputWrap>
+            <St.InputWrap>&nbsp; {dateDiary?.meal}</St.InputWrap>
           ) : (
             <St.Meal
               placeholder="오늘 먹은 것을 입력해주세요"
