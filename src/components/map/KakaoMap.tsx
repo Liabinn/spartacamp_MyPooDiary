@@ -15,8 +15,7 @@ declare global {
     kakao: any;
   }
 }
-//카카오맵 API키 .env.local에 저장한거에서 가져옴
-const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&autoload=false&libraries=services`;
+
 interface Maker {
   position: { lat: number; lng: number };
   title: string;
@@ -25,6 +24,8 @@ const KakaoMap = () => {
   const [info, setInfo] = useState<Maker | null>(null);
   const [markers, setMarkers] = useState<Maker[]>([]);
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
+  const [level, setLevel] = useState<number>();
+
   const [userLocation, setUserLocation] = useState({
     center: {
       lat: 33.450701,
@@ -58,24 +59,26 @@ const KakaoMap = () => {
   //     }
   //   });
   // }, [map]);
+
   useEffect(() => {
     if (!map) return;
     const ps = new window.kakao.maps.services.Places();
 
     // 사용자의 위치를 얻습니다.
     navigator.geolocation.getCurrentPosition((position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
-      setUserLocation((prev) => ({
-        ...prev,
+      const lat = position.coords.latitude; // 위도
+      const lng = position.coords.longitude; // 경도
+      console.log("lat", lat);
+      console.log("lng", lng);
+      setUserLocation((perv) => ({
+        ...perv,
         center: {
-          lat: position.coords.latitude, // 위도
-          lng: position.coords.longitude // 경도
+          lat: lat,
+          lng: lng
         },
+        errMsg: null,
         isLoading: false
       }));
-      console.log("사용자기준위치", userLocation.center);
-
       // 사용자의 위치를 기준으로 반경 100m 내의 장소를 검색합니다.
       const radius = 300; // 반경 100m
       const keyword = " 화장실";
@@ -86,24 +89,13 @@ const KakaoMap = () => {
           console.log("상태 string", status);
           if (status === window.kakao.maps.services.Status.OK) {
             const bounds = new window.kakao.maps.LatLngBounds();
+
             // 사용자의 위치에 마커를 추가합니다.
             const userMarker = new window.kakao.maps.Marker({
               position: new window.kakao.maps.LatLng(lat, lng),
               map: map
             });
             bounds.extend(userMarker.getPosition());
-            const circle = new window.kakao.maps.Circle({
-              center: userMarker.getPosition(), // 원의 중심 좌표
-              radius: radius, // 원의 반경 (단위: m)
-              strokeWeight: 2, // 선의 두께
-              strokeColor: "#75B8FA", // 선의 색상
-              strokeOpacity: 1, // 선의 불투명도
-              fillColor: "#CFE7FF", // 채우기 색상
-              fillOpacity: 0.7 // 채우기 불투명도
-            });
-            console.log("원", circle);
-
-            circle.setMap(map);
 
             const newMarkers = data.map((place: any) => {
               const position = { lat: Number(place.y), lng: Number(place.x) };
@@ -124,25 +116,64 @@ const KakaoMap = () => {
           radius: radius
         }
       );
+
+      // map.setCenter(new window.kakao.maps.LatLng(lat, lng));
+      // const circleCenter = new window.kakao.maps.LatLng(lat, lng);
+      // const circleRadius = 100; // 반경 100m
+      // const circle = new window.kakao.maps.Circle({
+      //   center: circleCenter,
+      //   radius: circleRadius
+      // });
+      // circle.setMap(map);
     });
-  }, [map]);
+  }, [map, level]);
+  // useEffect(() => {
+  //   console.log("원 센터확인", userLocation.center);
+  // }, [userLocation]);
+  // useEffect(() => {
+  //   const updateCenter = () => {
+  //     if (map) {
+  //       const { lat, lng } = userLocation.center;
+  //       const center = new window.kakao.maps.LatLng(lat, lng);
+  //       console.log("updateCenter", center);
+  //       map.setCenter(center);
+  //     }
+  //   };
+
+  //   updateCenter();
+  // }, [map, userLocation.center]);
   return (
     <>
-      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
       {/* 카카오맵 */}
       <Map
-        center={{ lat: 33.450701, lng: 126.570667 }}
-        style={{ width: "80%", height: "80%" }}
-        level={3}
-        onCreate={setMap}
+        center={{
+          lat: 33.450701,
+          lng: 126.570667
+        }}
+        style={{ width: "100%", height: "100%" }}
+        level={2}
+        onCreate={(map) => {
+          setMap(map);
+          // const center = map.getCenter();
+          // console.log("맵에서 센터확인:", center);
+        }}
       >
-        {
-          <MapMarker position={userLocation.center}>
-            <div style={{ padding: "5px", color: "#000" }}>
-              {"여기가 내 위치야!"}
-            </div>
-          </MapMarker>
-        }
+        {" "}
+        <Circle
+          center={userLocation.center}
+          radius={300}
+          strokeWeight={5} // 선의 두께입니다
+          strokeColor={"#75B8FA"} // 선의 색깔입니다
+          strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+          strokeStyle={"dash"} // 선의 스타일 입니다
+          fillColor={"#CFE7FF"} // 채우기 색깔입니다
+          fillOpacity={0.7} // 채우기 불투명도 입니다
+        />
+        <MapMarker position={userLocation.center}>
+          <div style={{ padding: "5px", color: "#000" }}>
+            {"여기가 내 위치야!"}
+          </div>
+        </MapMarker>
         {markers.map((marker) => (
           <MapMarker
             key={`marker-${marker.title}-${marker.position.lat},${marker.position.lng}`}
