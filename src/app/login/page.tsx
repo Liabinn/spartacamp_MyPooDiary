@@ -1,14 +1,22 @@
 'use client'
 import React, { useState, ChangeEvent, FormEvent } from 'react'
 import axios from 'axios'
-import * as St from '../styledComponent/login/login.style'
+import * as St from '../styledComponents/login/StLogin'
 import Spacer from '@/components/ui/Spacer'
+
+type userData = {
+  email: string
+  password: string
+  passwordCheck: string
+  nickname: string
+  check: boolean
+}
 
 const LoginPage = () => {
 
   // 회원가입 시 input 영역 value 가져오기
-  const [signUpInputValue, setSignUpInputValue] = useState({
-    userid: "",
+  const [signUpInputValue, setSignUpInputValue] = useState<userData>({
+    email: "",
     password: "",
     passwordCheck: "",
     nickname: "",
@@ -20,6 +28,7 @@ const LoginPage = () => {
       ...signUpInputValue,
       [name]: value,
     })
+    console.log(signUpInputValue)
   }
 
   // 로그인-회원가입 toggle state
@@ -29,7 +38,7 @@ const LoginPage = () => {
   // 회원가입 시 db에 값 넣어주기
   const handleDoSignUp = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/users",);
+      const response = await axios.post("http://localhost:4001/users", signUpInputValue);
       console.log(response)
     } catch (error) {
       console.log(error)
@@ -56,7 +65,7 @@ const LoginPage = () => {
         <St.SectionContainer>
           <St.Section>
             <St.Label htmlFor='login_id'>ID</St.Label>
-            <St.Input id='login_id' type='text' minLength={4} maxLength={10} placeholder='아이디는 4~10글자입니다.' />
+            <St.Input id='login_id' type='email' minLength={4} placeholder='아이디는 4글자 이상 입니다.' />
           </St.Section>
           <St.Section>
             <St.Label htmlFor='login_pw'>PASSWORD</St.Label>
@@ -78,7 +87,7 @@ const LoginPage = () => {
         <St.SectionContainer onSubmit={handleSubmitOnClick}>
           <St.Section>
             <St.Label htmlFor='id'>ID</St.Label>
-            <St.Input id='id' type='text' onChange={onChangeSignUpInput} minLength={4} maxLength={10} name='id' placeholder='아이디는 4~10글자입니다.' />
+            <St.Input id='id' type='email' onChange={onChangeSignUpInput} minLength={4} name='email' placeholder='아이디는 4글자 이상 입니다.' />
             <St.InputValueValidation>형식에 맞도록 아이디를 설정해주세요.</St.InputValueValidation>
           </St.Section>
           <St.Section>
