@@ -4,8 +4,9 @@ import axios from "axios";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
-import * as St from "./StyleProfile";
+import * as St from "@/app/styledComponents/profile/StyleProfile";
 import { GetDiary, Value } from "./model/profile";
+
 const ProfilePage = () => {
   // useState 훅의 초기값으로 현재 날짜를 넣어줌
   const [value, onChange] = useState<Value>(new Date());
