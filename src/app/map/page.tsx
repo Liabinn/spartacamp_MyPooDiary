@@ -8,8 +8,7 @@ const MapPage = () => {
     <div>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
       <main className="w-screen h-screen left-0 top-0">
-        {/* <KakaoMap /> */}
-        <KakaoMap2 />
+        <KakaoMap />
       </main>
     </div>
   );
