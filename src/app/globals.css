@@ -175,15 +175,12 @@ html {
 * {
   box-sizing: border-box;
 }
-
 body {
   /* 스크린 사이즈 및 가운데 정렬 추가 */
   max-width: 1200px;
   margin: 0 auto;
 }
-
 body * {
-  max-width: 1200px;
   font-size: var(--p);
   font-family: "YeongdeokSea";
 }
