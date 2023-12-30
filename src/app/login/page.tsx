@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import * as St from '../styledComponents/login/StLogin'
+import * as St from '@/app/styledComponents/login/StLogin'
 import Login from '@/components/login/Login'
 import SignUp from '@/components/login/SignUp'
 import Spacer from '@/components/ui/Spacer'
