@@ -10,7 +10,7 @@ type userData = {
   password: string
   passwordCheck: string
   nickname: string
-  check: string
+  check: boolean
 }
 
 const SignUp = () => {
@@ -23,16 +23,21 @@ const SignUp = () => {
     password: "",
     passwordCheck: "",
     nickname: "",
-    check: "",
+    check: false,
   });
+  // 체크박스 외 input onChange event
   const onChangeSignUpInput = (e: ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target
-    setSignUpInputValue({
-      ...signUpInputValue,
-      [name]: value,
-    })
-    console.log(signUpInputValue)
-  }
+    const {name, value} = e.target;
+    setSignUpInputValue({...signUpInputValue, [name]: value,});
+    console.log(signUpInputValue);
+  };
+
+  // 체크박스 event
+  const handleOnChangeCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
+    const {checked} = e.target;
+    setSignUpInputValue({...signUpInputValue, check: checked});
+    console.log(signUpInputValue);
+  };
 
   // 회원가입 시 db에 값 넣어주기
   const handleDoSignUp = async () => {
@@ -48,7 +53,7 @@ const SignUp = () => {
   };
 
   // 회원가입 버튼 클릭 시 submit 막아주고 
-  const handleSubmitOnClick =(e: FormEvent<HTMLFormElement>) => {
+  const handleSubmitOnClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // db에 저장
     handleDoSignUp();
@@ -86,7 +91,7 @@ const SignUp = () => {
           <St.Section>
             <div className='flex flex-row gap-4'>
               <St.Label>개인정보 제공 동의</St.Label>
-              <input type='checkbox' onChange={onChangeSignUpInput} name='check' />
+              <input type='checkbox' onChange={handleOnChangeCheckBox} name='check' />
             </div>
             <St.InputValueValidation>개인정보 제공에 동의하셔야 서비스를 이용하실 수 있습니다.</St.InputValueValidation>
           </St.Section>
