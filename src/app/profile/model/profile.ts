@@ -6,6 +6,7 @@ export type Diary = {
   condition: string;
   meal: string;
   date: string;
+  comment: string | null;
 };
 
 export type GetDiary = {
@@ -14,6 +15,7 @@ export type GetDiary = {
   condition: string;
   meal: string;
   date: string;
+  comment: string;
 };
 export type DateDiary = GetDiary[] | undefined;
 export type Content = {

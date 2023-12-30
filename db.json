@@ -6,63 +6,72 @@
       "toiletNumber": "3",
       "condition": "😐",
       "meal": "피자",
-      "date": "2023.12.08"
+      "date": "2023.12.08",
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": "0",
       "condition": "😐",
       "meal": "햄버거",
       "date": "2023.12.15",
-      "id": 2
+      "id": 2,
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": " 2",
       "condition": "😫",
       "meal": "양배추쌈",
       "date": "2023.12.29",
-      "id": 3
-    },
-    {
-      "toiletNumber": "4",
-      "condition": "😄",
-      "meal": "오꼬노미야끼",
-      "date": "2023.12.30",
-      "id": 4
+      "id": 3,
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": "0",
       "condition": "😫",
       "meal": "라면",
       "date": "2023.12.25",
-      "id": 5
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😐",
-      "meal": "고구마",
-      "date": "2023.12.24",
-      "id": 6
+      "id": 5,
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": " 3",
       "condition": "😄",
       "meal": "눈사람",
       "date": "2023.12.28",
-      "id": 7
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😐",
-      "meal": "놀고싶어",
-      "date": "2023.12.27",
-      "id": 8
+      "id": 7,
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": " 1",
       "condition": "😣",
       "meal": "잡채",
       "date": "2023.12.26",
-      "id": 9
+      "id": 9,
+      "comment": "똥 잘쌌다"
+    },
+    {
+      "toiletNumber": " 2",
+      "condition": "😐",
+      "meal": "케이크, 마라탕",
+      "date": "2023.12.30",
+      "comment": "똥이 핑크색 이었어요",
+      "id": 10
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😫",
+      "meal": "보쌈",
+      "date": "2023.12.27",
+      "comment": "저리가",
+      "id": 11
+    },
+    {
+      "toiletNumber": " 2",
+      "condition": "😣",
+      "meal": "양배추",
+      "date": "2023.12.31",
+      "comment": "",
+      "id": 12
     }
   ]
 }

@@ -24,6 +24,8 @@ export const Id = tw.p`
 
 export const RadioSelect = tw.label`
     m-auto
+.sm:text-xs
+
 `;
 export const DiaryContainer = tw.div`
   flex
@@ -31,7 +33,9 @@ export const DiaryContainer = tw.div`
   items-center
   bg-[var(--secondaryColor)]
   p-8
-  w-[70rem]
+  w-[90%]
+  max-w-[70rem]
+ 
 `;
 export const QuestionContainer = tw.div`
   flex
@@ -39,8 +43,8 @@ export const QuestionContainer = tw.div`
   mt-4
   gap-8
   mb-10
-  p-10
-
+  w-[95%]
+  .sm:w-[95%]
 `;
 export const Title = tw.h1`
 mt-4
@@ -52,12 +56,16 @@ ml-auto
 mr-8
 text-2xl
 `;
-export const Meal = tw.input`
+export const TextInput = tw.input`
 border-2 
 h-20
 p-2
 rounded-2xl
 text-2xl
+`;
+export const closeBtn = tw.p`
+ml-auto
+cursor-pointer
 `;
 export const InputWrap = tw.div`
 bg-white
@@ -65,8 +73,17 @@ h-20
 flex
 items-center
 rounded-2xl
-w-[50rem]
-
+min-w-[20rem]
+`;
+export const EditTextArea = tw.textarea`
+bg-white
+min-h-20
+h-fit
+flex
+items-center
+rounded-2xl
+min-w-[20rem]
+p-2
 `;
 export const PooImage = tw.img`
 w-14
