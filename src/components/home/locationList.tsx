@@ -1,3 +1,5 @@
+"use client";
+
 import {
   StListWrapper,
   StPlaceName,
@@ -7,37 +9,60 @@ import {
   StTabContainer,
   StListContainer
 } from "@/app/styledComponents/home/StLocationList";
-import React from "react";
+import React, { useState } from "react";
 
 const LocationList = () => {
+  const [selectedTab, setSelectedTab] = useState("화장실");
+
+  const onClickTabs = (e: React.MouseEvent<HTMLInputElement>) => {
+    setSelectedTab(e.currentTarget.innerText);
+  };
+
   return (
     <>
       <StTabContainer>
-        <StTab>🚽화장실</StTab>
-        <StTab>🧻휴지</StTab>
+        <StTab onClick={onClickTabs}>화장실</StTab>
+        <StTab onClick={onClickTabs}>편의점</StTab>
       </StTabContainer>
 
       <StListContainer>
-        <StListWrapper>
-          <StPlaceName>진관사입구 개방화장실</StPlaceName>
-          <StAddress>주소</StAddress>
-          <StGender>남자화장실</StGender>
-        </StListWrapper>
-        <StListWrapper>
-          <StPlaceName>진관사입구 개방화장실</StPlaceName>
-          <StAddress>주소</StAddress>
-          <StGender>남자화장실</StGender>
-        </StListWrapper>
-        <StListWrapper>
-          <StPlaceName>진관사입구 개방화장실</StPlaceName>
-          <StAddress>주소</StAddress>
-          <StGender>남자화장실</StGender>
-        </StListWrapper>
-        <StListWrapper>
-          <StPlaceName>진관사입구 개방화장실</StPlaceName>
-          <StAddress>주소</StAddress>
-          <StGender>남자화장실</StGender>
-        </StListWrapper>
+        {selectedTab === "화장실" ? (
+          <>
+            <StListWrapper>
+              <StPlaceName>진관사입구 개방화장실</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+            <StListWrapper>
+              <StPlaceName>진관사입구 개방화장실</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+            <StListWrapper>
+              <StPlaceName>진관사입구 개방화장실</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+          </>
+        ) : (
+          <>
+            <StListWrapper>
+              <StPlaceName>편의점</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+            <StListWrapper>
+              <StPlaceName>편의점</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+            <StListWrapper>
+              <StPlaceName>편의점</StPlaceName>
+              <StAddress>주소</StAddress>
+              <StGender>남자화장실</StGender>
+            </StListWrapper>
+          </>
+        )}
       </StListContainer>
     </>
   );
