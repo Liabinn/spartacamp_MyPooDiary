@@ -7,7 +7,7 @@ const MapPage = () => {
   return (
     <div>
       <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
-      <main className="w-screen h-screen left-0 top-0">
+      <main className="flex justify-center items-center w-screen h-screen">
         <KakaoMap />
       </main>
     </div>
