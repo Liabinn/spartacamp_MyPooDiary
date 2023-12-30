@@ -1,11 +1,12 @@
 "use client";
+import * as St from "@/app/styledComponents/profile/StyleProfile";
 import Button from "@/components/common/button/Button";
 import axios from "axios";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
-import * as St from "./StyleProfile";
-import { GetDiary, Value } from "./model/profile";
+import { DateDiary, GetDiary, Value } from "./model/profile";
+
 const ProfilePage = () => {
   // useState 훅의 초기값으로 현재 날짜를 넣어줌
   const [value, onChange] = useState<Value>(new Date());
@@ -20,17 +21,20 @@ const ProfilePage = () => {
   //식단 useState
   const [meal, setMeal] = useState("");
   //가상의 데이터 유무에 따른 일지 양식
-  const [writeDiary, setWriteDiary] = useState(false);
+  const [writeDiary, setWriteDiary] = useState(true);
   //수정상태
-  const [isEdit, setIseEit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   //날짜 형태 포맷
   const formatDate = moment(value).format("YYYY.MM.DD");
+  //일지가 쓰인 날짜 배열
+  // const [dayList, setDayList] = useState<DayListtype>([""]);
   //일기 목록
-  const [diarys, setDiarys] = useState([]);
+  const [diarys, setDiarys] = useState<DateDiary>([]);
   //일기 추가 로직
   const addDiaryhandle = () => {
     if (toiletNumber && condition && meal) {
       const newDiary = { toiletNumber, condition, meal, date: formatDate };
+      const newDate = formatDate;
       const addDiary = async () => {
         try {
           const response = await axios.post(
@@ -39,11 +43,13 @@ const ProfilePage = () => {
           );
           alert("일기가 추가되었습니다.");
           setWriteDiary(true);
+          setMeal("");
         } catch {
           alert("오류가 발생하였습니다.");
         }
       };
       addDiary();
+      fetchDiary();
     } else {
       alert("모두 입력해주세요");
     }
@@ -57,12 +63,15 @@ const ProfilePage = () => {
   useEffect(() => {
     fetchDiary();
   }, []);
-  // 해당 날짜 일기 불러오기
-
-  const dateDiary = diarys.find((one: GetDiary) => {
+  // 해당 날짜 일기 불러오기 (클릭된 날짜)
+  const dateDiary = diarys!.find((one: GetDiary) => {
     return formatDate === one.date;
   });
 
+  //작성하기
+  const writeHandle = () => {
+    setWriteDiary(!writeDiary);
+  };
   return (
     <St.Container>
       <St.Avatar src="../../../assets/defaultAvatar.JPG" />
@@ -70,6 +79,7 @@ const ProfilePage = () => {
       <St.Id>ddongssaja</St.Id>
 
       <St.StyleCalendar locale="en" onChange={onChange} value={value} />
+      <Button text="작성하기" handler={writeHandle} />
 
       <St.DiaryContainer>
         <St.Title>

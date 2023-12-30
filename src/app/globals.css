@@ -183,7 +183,6 @@ body {
 }
 
 body * {
-  max-width: 1200px;
   font-size: var(--p);
   font-family: "YeongdeokSea";
 }

@@ -66,12 +66,17 @@ flex
 items-center
 rounded-2xl
 w-[50rem]
+
+`;
+export const PooImage = tw.img`
+w-14
 `;
 
 export const ButtonContainer = tw.div`
 flex
 gap-6
 `;
+
 export const StyleCalendar = styled(Calendar)`
   width: 90%;
   max-width: 70rem;

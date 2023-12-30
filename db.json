@@ -1,4 +1,5 @@
 {
+  "users": [],
   "diary": [
     {
       "id": "1",
@@ -16,17 +17,52 @@
     },
     {
       "toiletNumber": " 2",
-      "condition": "😣",
-      "meal": "양배추보쌈",
+      "condition": "😫",
+      "meal": "양배추쌈",
       "date": "2023.12.29",
       "id": 3
     },
     {
-      "toiletNumber": "0",
-      "condition": "😣",
-      "meal": "짬뽕",
-      "date": "2023.12.27",
+      "toiletNumber": "4",
+      "condition": "😄",
+      "meal": "오꼬노미야끼",
+      "date": "2023.12.30",
       "id": 4
+    },
+    {
+      "toiletNumber": "0",
+      "condition": "😫",
+      "meal": "라면",
+      "date": "2023.12.25",
+      "id": 5
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "고구마",
+      "date": "2023.12.24",
+      "id": 6
+    },
+    {
+      "toiletNumber": " 3",
+      "condition": "😄",
+      "meal": "눈사람",
+      "date": "2023.12.28",
+      "id": 7
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "놀고싶어",
+      "date": "2023.12.27",
+      "id": 8
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😣",
+      "meal": "잡채",
+      "date": "2023.12.26",
+      "id": 9
     }
   ]
 }

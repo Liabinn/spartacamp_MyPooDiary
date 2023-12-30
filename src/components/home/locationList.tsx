@@ -6,7 +6,7 @@ import {
   StPlaceName,
   StTab,
   StTabContainer
-} from "@/app/styledComponent/home/StLocationList";
+} from "@/app/styledComponents/home/StLocationList";
 
 const LocationList = () => {
   return (
