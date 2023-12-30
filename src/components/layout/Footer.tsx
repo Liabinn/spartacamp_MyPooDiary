@@ -1,13 +1,21 @@
 import React from "react";
-import { StFooter } from "@/app/styledComponents/layout/StFooter";
+import {
+  StFooterContainer,
+  StFooterMenu,
+  StFooterTitle,
+  StFooterWrapper
+} from "@/app/styledComponents/layout/StFooter";
 
 const Footer = () => {
   return (
-    <StFooter>
-      <p>Contact Us</p>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
-    </StFooter>
+    <StFooterContainer>
+      <StFooterTitle>📘 나의 쾌변 일지</StFooterTitle>
+      <StFooterWrapper>
+        <StFooterMenu>Contact Us</StFooterMenu>
+        <StFooterMenu>Privacy Policy</StFooterMenu>
+        <StFooterMenu>Terms of Service</StFooterMenu>
+      </StFooterWrapper>
+    </StFooterContainer>
   );
 };
 
