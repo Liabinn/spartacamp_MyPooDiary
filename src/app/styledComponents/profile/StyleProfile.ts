@@ -76,6 +76,10 @@ export const ButtonContainer = tw.div`
 flex
 gap-6
 `;
+export const TileContents = tw.div`
+flex
+items-center
+`;
 
 export const StyleCalendar = styled(Calendar)`
   width: 90%;

@@ -26,8 +26,7 @@ const ProfilePage = () => {
   const [isEdit, setIsEdit] = useState(false);
   //날짜 형태 포맷
   const formatDate = moment(value).format("YYYY.MM.DD");
-  //일지가 쓰인 날짜 배열
-  // const [dayList, setDayList] = useState<DayListtype>([""]);
+
   //일기 목록
   const [diarys, setDiarys] = useState<DateDiary>([]);
   //일기 추가 로직
@@ -68,6 +67,53 @@ const ProfilePage = () => {
     return formatDate === one.date;
   });
 
+  //데이터에서 날짜만 빼기
+  const dayList = diarys?.map((dairy) => dairy.date);
+  const addContent = ({ date }: any) => {
+    // 해당 날짜(하루)에 추가할 컨텐츠의 배열
+    const contents = [];
+    // 해당날짜타일과 일기의 날짜 가 맞는 것(타일 날짜)
+    const dateDiary = diarys!.find((one: GetDiary) => {
+      return moment(date).format("YYYY.MM.DD") === one.date;
+    });
+    const diaryCondition = dateDiary?.condition;
+    const diaryToiletNumber = dateDiary?.toiletNumber;
+
+    // date(각 날짜)가  리스트의 날짜와 일치하면 해당 컨텐츠(이모티콘) 추가
+    if (dayList!.find((day) => day === moment(date).format("YYYY.MM.DD"))) {
+      if (diaryCondition === "😄") {
+        contents.push(
+          <St.TileContents>
+            <St.PooImage src="/assets/빨간똥.png" />
+            <p>{diaryToiletNumber}</p>
+          </St.TileContents>
+        );
+      } else if (diaryCondition === "😐") {
+        contents.push(
+          <St.TileContents>
+            <St.PooImage src="/assets/주황똥.png" />
+            <p>{diaryToiletNumber}</p>
+          </St.TileContents>
+        );
+      } else if (diaryCondition === "😣") {
+        contents.push(
+          <St.TileContents>
+            <St.PooImage src="/assets/초록똥.png" />
+            <p>{diaryToiletNumber}</p>
+          </St.TileContents>
+        );
+      } else if (diaryCondition === "😫") {
+        contents.push(
+          <St.TileContents>
+            <St.PooImage src="/assets/파란똥.png" />
+            <p>{diaryToiletNumber}</p>
+          </St.TileContents>
+        );
+      }
+    }
+    return <div>{contents}</div>; // 각 날짜마다 해당 요소가 들어감
+  };
+
   //작성하기
   const writeHandle = () => {
     setWriteDiary(!writeDiary);
@@ -78,7 +124,12 @@ const ProfilePage = () => {
       <St.Nickname>화장실 급해요</St.Nickname>
       <St.Id>ddongssaja</St.Id>
 
-      <St.StyleCalendar locale="en" onChange={onChange} value={value} />
+      <St.StyleCalendar
+        locale="en"
+        onChange={onChange}
+        value={value}
+        tileContent={addContent}
+      />
       <Button text="작성하기" handler={writeHandle} />
 
       <St.DiaryContainer>
