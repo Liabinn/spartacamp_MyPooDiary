@@ -1,8 +1,5 @@
 "use client"; //서버에서만 사용가능한 코드를 클라이언트에서도 사용가능하게 해줌
-
-import Script from "next/script";
 import React, { useEffect, useState } from "react";
-
 import {
   Circle,
   Map,
@@ -27,7 +24,7 @@ const KakaoMap = () => {
   const [markers, setMarkers] = useState<Maker[]>([]);
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
   const [level, setLevel] = useState<number>();
-
+  //유저 경로
   const [userLocation, setUserLocation] = useState({
     center: {
       lat: 33.450701,
@@ -71,18 +68,20 @@ const KakaoMap = () => {
               map: map
             });
             bounds.extend(userMarker.getPosition());
-            const circle = new window.kakao.maps.Circle({
-              center: userMarker.getPosition(), // 원의 중심 좌표
-              radius: radius, // 원의 반경 (단위: m)
-              strokeWeight: 2, // 선의 두께
-              strokeColor: "#75B8FA", // 선의 색상
-              strokeOpacity: 1, // 선의 불투명도
-              fillColor: "#CFE7FF", // 채우기 색상
-              fillOpacity: 0.7 // 채우기 불투명도
-            });
-            console.log("원", circle);
+            //
+            // const circle = new window.kakao.maps.Circle({
+            //   center: userMarker.getPosition(), // 원의 중심 좌표
+            //   radius: radius, // 원의 반경 (단위: m)
+            //   strokeWeight: 2, // 선의 두께
+            //   strokeColor: "#75B8FA", // 선의 색상
+            //   strokeOpacity: 1, // 선의 불투명도
+            //   fillColor: "#CFE7FF", // 채우기 색상
+            //   fillOpacity: 0.7 // 채우기 불투명도
+            // });
+            // console.log("원", circle);
 
-            circle.setMap(map);
+            // circle.setMap(map);
+            //원 테스트용 입니다
 
             const newMarkers = data.map((place: any) => {
               const position = { lat: Number(place.y), lng: Number(place.x) };
@@ -115,11 +114,7 @@ const KakaoMap = () => {
         }}
         style={{ width: "100%", height: "100%" }}
         level={2}
-        onCreate={(map) => {
-          setMap(map);
-          // const center = map.getCenter();
-          // console.log("맵에서 센터확인:", center);
-        }}
+        onCreate={setMap}
       >
         {" "}
         <Circle
