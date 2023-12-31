@@ -23,15 +23,12 @@ const ProfilePage = () => {
   const [meal, setMeal] = useState("");
   //기타 사항 useState
   const [comment, setComment] = useState("");
-  //가상의 데이터 유무에 따른 일지 양식
-  const [writeDiary, setWriteDiary] = useState(false);
   //수정상태
   const [isEdit, setIsEdit] = useState(false);
   //토글 상태
   const [isOpen, setIsOpen] = useState(false);
   //날짜 형태 포맷
   const formatDate = moment(value).format("YYYY.MM.DD");
-
   //일기 목록
   const [diarys, setDiarys] = useState<DateDiary>([]);
   //일기 추가 로직
@@ -52,7 +49,6 @@ const ProfilePage = () => {
             newDiary
           );
           alert("일기가 추가되었습니다.");
-          setWriteDiary(false);
           setMeal("");
           setComment("");
         } catch {
@@ -98,28 +94,28 @@ const ProfilePage = () => {
         contents.push(
           <St.TileContents>
             <St.PooImage src="/assets/빨간똥.png" />
-            <p>{diaryToiletNumber}</p>
+            <St.TileP>{diaryToiletNumber}</St.TileP>
           </St.TileContents>
         );
       } else if (diaryCondition === "😐") {
         contents.push(
           <St.TileContents>
             <St.PooImage src="/assets/주황똥.png" />
-            <p>{diaryToiletNumber}</p>
+            <St.TileP>{diaryToiletNumber}</St.TileP>
           </St.TileContents>
         );
       } else if (diaryCondition === "😣") {
         contents.push(
           <St.TileContents>
             <St.PooImage src="/assets/초록똥.png" />
-            <p>{diaryToiletNumber}</p>
+            <St.TileP>{diaryToiletNumber}</St.TileP>
           </St.TileContents>
         );
       } else if (diaryCondition === "😫") {
         contents.push(
           <St.TileContents>
             <St.PooImage src="/assets/파란똥.png" />
-            <p>{diaryToiletNumber}</p>
+            <St.TileP>{diaryToiletNumber}</St.TileP>
           </St.TileContents>
         );
       }
@@ -129,16 +125,8 @@ const ProfilePage = () => {
 
   //해당 날짜에 일기가 있으면 일지 없으면 작성란
   const writeHandle = () => {
-    if (!dateDiary) {
-      setWriteDiary(true);
-
-      setIsOpen(true);
-    } else {
-      setWriteDiary(false);
-      setIsOpen(true);
-    }
+    setIsOpen(true);
   };
-
   //일지 부분 닫기
   const diaryCloseHandle = () => {
     setIsOpen(false);
@@ -154,7 +142,6 @@ const ProfilePage = () => {
         })
       );
       alert("삭제가 완료되었습니다");
-      setWriteDiary(true);
     } else {
       alert("삭제가 취소되었습니다.");
     }
@@ -177,6 +164,7 @@ const ProfilePage = () => {
     setIsEdit(false);
     fetchDiary();
   };
+
   return (
     <St.Container>
       <St.Avatar src="../../../assets/defaultAvatar.JPG" />
@@ -258,7 +246,8 @@ const ProfilePage = () => {
               }}
             ></Button>
           </St.DiaryContainer>
-        ) : writeDiary ? (
+        ) : //해당 날짜 데이터에 따라
+        !dateDiary ? (
           <St.DiaryContainer>
             <St.closeBtn onClick={diaryCloseHandle}>X</St.closeBtn>
             <St.Title>쾌변일지 작성</St.Title>
@@ -276,7 +265,7 @@ const ProfilePage = () => {
                         value={item}
                         onChange={(e) => setToiletNumber(e.target.value)}
                       />
-                      &nbsp; {item}
+                      {item}
                     </St.RadioSelect>
                   );
                 })}
@@ -293,7 +282,7 @@ const ProfilePage = () => {
                         value={item}
                         onChange={(e) => setCondition(e.target.value)}
                       />
-                      &nbsp; {item}
+                      {item}
                     </St.RadioSelect>
                   );
                 })}
@@ -323,13 +312,13 @@ const ProfilePage = () => {
             <St.Date>{formatDate}</St.Date>
             <St.QuestionContainer>
               <div>오늘 화장실 간 횟수</div>
-              <St.InputWrap>&nbsp; {dateDiary?.toiletNumber}</St.InputWrap>
+              <St.InputWrap>{dateDiary?.toiletNumber}</St.InputWrap>
               <p>오늘의 쾌변 컨디션</p>
-              <St.InputWrap>&nbsp; {dateDiary?.condition}</St.InputWrap>
+              <St.InputWrap>{dateDiary?.condition}</St.InputWrap>
               <p>오늘의 식단</p>
-              <St.InputWrap>&nbsp; {dateDiary?.meal}</St.InputWrap>
+              <St.InputWrap>{dateDiary?.meal}</St.InputWrap>
               <p>메모</p>
-              <St.InputWrap>&nbsp; {dateDiary?.comment}</St.InputWrap>
+              <St.InputWrap>{dateDiary?.comment}</St.InputWrap>
             </St.QuestionContainer>
             <St.ButtonContainer>
               <Button
@@ -348,7 +337,7 @@ const ProfilePage = () => {
           </St.DiaryContainer>
         )
       ) : (
-        // <Button text="일지 추가하기" handler={writeHandle} />
+        // <Button text="일지 추가하기" handler={()=>{setWriteDiary(true)}} />
         ""
       )}
       <Spacer y={30} />

@@ -24,7 +24,7 @@ export const Id = tw.p`
 
 export const RadioSelect = tw.label`
     m-auto
-.sm:text-xs
+    text-[1.8rem]
 
 `;
 export const DiaryContainer = tw.div`
@@ -74,6 +74,7 @@ flex
 items-center
 rounded-2xl
 min-w-[20rem]
+pl-[0.5rem]
 `;
 export const EditTextArea = tw.textarea`
 bg-white
@@ -86,7 +87,7 @@ min-w-[20rem]
 p-2
 `;
 export const PooImage = tw.img`
-w-14
+w-[50%]
 `;
 
 export const ButtonContainer = tw.div`
@@ -96,6 +97,14 @@ gap-6
 export const TileContents = tw.div`
 flex
 items-center
+justify-center
+`;
+export const tileContainer = tw.div`
+w-[3rem]
+`;
+export const TileP = tw.p`
+text-[2rem]
+text-black
 `;
 
 export const StyleCalendar = styled(Calendar)`
@@ -134,6 +143,7 @@ export const StyleCalendar = styled(Calendar)`
 
   .react-calendar__tile {
     display: flex;
+    flex-direction: column;
     height: 7rem;
     text-align: start;
     background-color: white;
@@ -144,6 +154,7 @@ export const StyleCalendar = styled(Calendar)`
     }
     abbr {
       font-size: 1.5rem;
+      width: 100%;
     }
     @media screen and (max-width: 400px) {
       height: 4rem;
