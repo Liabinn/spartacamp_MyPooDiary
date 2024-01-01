@@ -191,7 +191,10 @@ const RestroomMap = () => {
             onClick={() => setInfo(marker)}
           >
             {info && info.title === marker.title && (
-              <div style={{ color: "#000" }}>{marker.title}</div>
+              <div style={{ color: "#000" }}>
+                {marker.title}
+                <button>리뷰쓰기</button>
+              </div>
             )}
           </MapMarker>
         ))}

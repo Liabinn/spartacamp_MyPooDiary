@@ -11,8 +11,9 @@ import {
 } from "@/app/styledComponents/home/StLocationList";
 import { useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { ConvenienceStore } from "../map/StoreMap";
-import { Restroom } from "../map/RestroomMap ";
+import StoreMap, { ConvenienceStore } from "../map/StoreMap";
+import RestroomMap, { Restroom } from "../map/RestroomMap ";
+import { StMapContainer } from "@/app/styledComponent/home/StLocationList";
 
 const LocationList = () => {
   const [selectedTab, setSelectedTab] = useState("화장실");
@@ -72,6 +73,18 @@ const LocationList = () => {
           </>
         )}
       </StListContainer>
+
+      <StMapContainer>
+        {selectedTab === "화장실" ? (
+          <>
+            <RestroomMap />
+          </>
+        ) : (
+          <>
+            <StoreMap />
+          </>
+        )}
+      </StMapContainer>
     </>
   );
 };
