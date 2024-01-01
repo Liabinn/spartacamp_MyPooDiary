@@ -17,6 +17,7 @@
   --h6: 2.363rem;
   --p: 2.1rem;
   --small: 1.867rem;
+  --small2: 1.667rem;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -175,13 +176,11 @@ html {
 * {
   box-sizing: border-box;
 }
-
 body {
   /* 스크린 사이즈 및 가운데 정렬 추가 */
   max-width: 1200px;
   margin: 0 auto;
 }
-
 body * {
   font-size: var(--p);
   font-family: "YeongdeokSea";
