@@ -149,12 +149,12 @@ export const StyleCalendar = styled(Calendar)`
     background-color: white;
     border: 0.2rem solid var(--secondaryColor);
     border-radius: 0.5rem;
-    :hover {
-      background-color: pink;
-    }
+
     abbr {
       font-size: 1.5rem;
       width: 100%;
+    }
+    img {
     }
     @media screen and (max-width: 400px) {
       height: 4rem;
