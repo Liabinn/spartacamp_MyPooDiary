@@ -38,3 +38,12 @@ export const StAddress = tw.p`
 export const StGender = tw.p`
   text-sm
 `;
+
+export const StMapContainer = tw.div`
+  flex 
+  flex-col 
+  justify-center 
+  items-center 
+  w-full 
+  h-screen
+`;
