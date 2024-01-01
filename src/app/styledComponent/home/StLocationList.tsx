@@ -19,12 +19,12 @@ export const StListContainer = tw.div`
 
 // 화장실 정보를 담은 카드 Wrapper
 export const StListWrapper = tw.ul`
-    w-full 
-    gap-5 
-    shadow-lg 
-    m-9
-    p-9
-  `;
+  w-full 
+  gap-5 
+  shadow-lg 
+  m-9
+  p-9
+`;
 
 // 화장실 이름
 export const StPlaceName = tw.p`
