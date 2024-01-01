@@ -6,13 +6,12 @@ export const StNavContainer = tw.nav`
   justify-between
   items-center
   my-9
-  bg-secondaryColor
+  bg-[var(--primaryColor)]
   py-6
   px-12
   rounded-full
   text-white
   shadow-md
-  
 `;
 
 // 네비게이션 메뉴를 감싸는 wrapper
