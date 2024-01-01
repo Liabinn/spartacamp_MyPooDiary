@@ -6,7 +6,7 @@ import React from "react";
 const HomePage = () => {
   return (
     <div>
-      <LocationList></LocationList>
+      <LocationList />
       <HomeMap></HomeMap>
       <MemberSection></MemberSection>
     </div>
