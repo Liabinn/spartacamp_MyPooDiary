@@ -4,7 +4,7 @@ import "./globals.css";
 import MainWrapper from "@/components/layout/MainWrapper";
 import Footer from "@/components/layout/Footer";
 import NavBar from "@/components/layout/NavBar";
-import Provider from "./api/Provider";
+import Providers from "@/redux/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,11 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Provider>
+        <Providers>
           <NavBar />
           <MainWrapper>{children}</MainWrapper>
           <Footer />
-        </Provider>
+        </Providers>
       </body>
     </html>
   );
