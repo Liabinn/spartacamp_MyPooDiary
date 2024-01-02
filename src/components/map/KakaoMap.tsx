@@ -7,6 +7,7 @@ import {
   post,
   resetMapList
 } from "@/app/api/api";
+import { getRestrooms, getStores } from "@/redux/modules/locationSlice";
 import Script from "next/script";
 import React, { useEffect, useState } from "react";
 import {
