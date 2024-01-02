@@ -20,7 +20,13 @@ export const post = async (data: { [key: string]: any }) => {
   const res = await axios.post(`${apiUrl}/maplist`, data);
   return res.data;
 };
-
+export const resetMapList = async () => {
+  try {
+    await axios.put(`${apiUrl}/maplist`, []);
+  } catch (error) {
+    console.error(error);
+  }
+};
 export const mapKeyword = async (keyword: string) => {
   const res = await axios.get(`${apiUrl}/keyword/`);
   return res.data;

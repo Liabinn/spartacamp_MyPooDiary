@@ -21,6 +21,7 @@ type Location = {
 
 const LocationList = () => {
   const [selectedTab, setSelectedTab] = useState<string>("화장실");
+  const [list, setList] = useState<any[]>([{}]);
   const onClickTabs = (e: React.MouseEvent<HTMLInputElement>) => {
     setSelectedTab(e.currentTarget.innerText);
   };
@@ -72,7 +73,21 @@ const LocationList = () => {
 
       <StMapContainer>
         {/* 프롭스 로사용해서 프롭스만 재지정 */}
-        <KakaoMap keyword1={selectedTab} setKeyword={setSelectedTab}></KakaoMap>
+        <KakaoMap
+          keyword1={selectedTab}
+          setKeyword={setSelectedTab}
+          list={list}
+          setList={setList}
+        ></KakaoMap>
+        {/* {selectedTab === "화장실" ? (
+          <>
+            <RestroomMap />
+          </>
+        ) : (
+          <>
+            <StoreMap />
+          </>
+        )} */}
       </StMapContainer>
     </>
   );
