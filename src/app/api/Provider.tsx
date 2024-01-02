@@ -2,6 +2,7 @@
 import React from "react";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { store } from "../../redux/configStore/store";
 import { Provider as ReduxProvider } from "react-redux";
 
 type Props = {
@@ -22,7 +23,7 @@ const Provider = ({ children }: Props) => {
   );
   return (
     <QueryClientProvider client={queryClient}>
-      <Provider>{children}</Provider>
+      <ReduxProvider store={store}>{children}</ReduxProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

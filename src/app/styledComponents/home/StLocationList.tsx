@@ -47,4 +47,12 @@ export const StGender = tw.p`
   text-[1.667rem]
 `;
 
-export const StMapContainer = tw.div``;
+export const StMapContainer = tw.div`
+  flex 
+  flex-col 
+  justify-center 
+  items-center 
+  w-full 
+  h-screen
+`;
+
