@@ -46,3 +46,5 @@ export const StAddress = tw.p`
 export const StGender = tw.p`
   text-[1.667rem]
 `;
+
+export const StMapContainer = tw.div``;

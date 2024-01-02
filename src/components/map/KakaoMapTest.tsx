@@ -2,6 +2,10 @@
 
 import Script from "next/script";
 import React, { useEffect, useState } from "react";
+import {
+  getCurrentLocation,
+  getRestrooms
+} from "@/redux/modules/locationSlice";
 
 import {
   Circle,
@@ -10,7 +14,7 @@ import {
   MapTypeControl,
   ZoomControl
 } from "react-kakao-maps-sdk";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 declare global {
   interface Window {
@@ -25,7 +29,7 @@ interface Maker {
   title: string;
 }
 
-const KakaoMap = () => {
+const KakaoMapTest = () => {
   const [info, setInfo] = useState<Maker | null>(null);
   const [markers, setMarkers] = useState<Maker[]>([]);
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -39,21 +43,26 @@ const KakaoMap = () => {
     isLoading: true
   });
 
+  const dispatch = useDispatch();
+  const location = useSelector((state) => state);
+
+  console.log(location);
+
   useEffect(() => {
     if (!map) return;
     const ps = new window.kakao.maps.services.Places();
 
     ps.keywordSearch("은평구 화장실", (data: [{}], status: string) => {
-      console.log("데이터 배열", data);
-      console.log("상태 string", status);
-
       if (status === window.kakao.maps.services.Status.OK) {
         const bounds = new window.kakao.maps.LatLngBounds();
         const newMarkers = data.map((place: any) => {
           const position = { lat: Number(place.y), lng: Number(place.x) };
+
+          dispatch(getCurrentLocation({ position }));
           bounds.extend(
             new window.kakao.maps.LatLng(position.lat, position.lng)
           );
+
           return {
             position,
             title: String(place.place_name)
@@ -65,6 +74,7 @@ const KakaoMap = () => {
       navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
+
         setUserLocation((prev) => ({
           ...prev,
           center: {
@@ -100,7 +110,7 @@ const KakaoMap = () => {
                 fillColor: "#CFE7FF", // 채우기 색상
                 fillOpacity: 0.7 // 채우기 불투명도
               });
-              console.log("원", circle);
+
               circle.setMap(map);
               const newMarkers = data.map((place: any) => {
                 const position = { lat: Number(place.y), lng: Number(place.x) };
@@ -112,6 +122,7 @@ const KakaoMap = () => {
                   title: String(place.place_name)
                 };
               });
+
               setMarkers(newMarkers);
               map.setBounds(bounds);
             }
@@ -124,6 +135,7 @@ const KakaoMap = () => {
       });
     });
   }, [map]);
+  dispatch(getRestrooms(markers));
 
   return (
     <>
@@ -164,4 +176,4 @@ const KakaoMap = () => {
     </>
   );
 };
-export default KakaoMap;
+export default KakaoMapTest;

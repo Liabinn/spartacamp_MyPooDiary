@@ -7,12 +7,14 @@ import {
   StGender,
   StTab,
   StTabContainer,
-  StListContainer
+  StListContainer,
+  StMapContainer
 } from "@/app/styledComponents/home/StLocationList";
 import React, { useState } from "react";
-import { StMapContainer } from "@/app/styledComponent/home/StLocationList";
 import Script from "next/script";
 import KakaoMap from "../map/KakaoMap";
+import { useSelector } from "react-redux";
+import KakaoMapTest from "../map/KakaoMapTest";
 
 const LocationList = () => {
   const [selectedTab, setSelectedTab] = useState("화장실");
@@ -21,6 +23,10 @@ const LocationList = () => {
   };
 
   const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&libraries=services,clusterer&autoload=false`;
+
+  // 아래 test는 리덕스 툴킷 테스트에요. 삭제하셔도 됩니다!
+  const locationData = useSelector((state) => state);
+  console.log(locationData);
 
   return (
     <>
@@ -49,9 +55,8 @@ const LocationList = () => {
         )}
       </StListContainer>
 
-      <StMapContainer>
-        <KakaoMap></KakaoMap>
-        {/* {selectedTab === "화장실" ? (
+      <KakaoMapTest></KakaoMapTest>
+      {/* {selectedTab === "화장실" ? (
           <>
             <RestroomMap />
           </>
@@ -60,7 +65,6 @@ const LocationList = () => {
             <StoreMap />
           </>
         )} */}
-      </StMapContainer>
     </>
   );
 };
