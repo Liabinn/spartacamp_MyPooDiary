@@ -34,12 +34,39 @@ const Login = () => {
     try {
       // email과 password를 가져와서 로그인 시도
       const {data} = await axios.post("http://localhost:4001/login", loginInputValue)
-      const accessToken = data.accessToken;
-      const nickname = data.nickname;
+
+      // const express = require('express');
+      // const router = express.Router();
+      // const auth = require('../')
 
       // 로그인이 완료되면, 토큰을 로컬호스트에 저장(토큰이 없다면 오류)
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("nickname", nickname);
+
+  // const JWT_SECRET_KEY = require('./node_modules/json-server-auth/dist/constants').JWT_SECRET_KEY;
+  // const auth = require('json-server-auth')
+  // const server = express()
+  // const router = jsonServer.router('db.json')
+
+  // server.get('/profile', auth, (req, res, next) => {
+  //   const token = req.header('Authorization') ? req.header('Authorization').replace('Bearer ', '') : null;
+  //   if (token) {
+  //     try {
+  //       const data = jwt.verify(token, JWT_SECRET_KEY)
+
+  //       const { db } = req.app;
+  //       let user = db.get('users').find({ email: data.email }).value();
+  //       res.json([user])
+  //     }
+  //     catch (error) {
+  //       res.json({ error: error })
+  //     }
+
+  //   } else {
+  //     res.json({ error: { name: "User not authorized" } })
+  //   }
+  // });
+
+  // server.db = router.db
+  // server.use(auth);
 
       // 로그인 성공 메시지
       alert("로그인 성공!");

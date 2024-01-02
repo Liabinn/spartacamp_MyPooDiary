@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, ChangeEvent, FormEvent } from 'react'
+import React, { useState, ChangeEvent, FormEvent, useRef } from 'react'
 import axios from 'axios'
 import * as St from '@/app/styledComponents/login/StLogin'
 import Spacer from '@/components/ui/Spacer'
@@ -9,7 +9,7 @@ type userData = {
   email: string
   password: string
   passwordCheck: string
-  nickname: string
+  name: string
   check: boolean
 }
 
@@ -22,9 +22,23 @@ const SignUp = () => {
     email: "",
     password: "",
     passwordCheck: "",
-    nickname: "",
+    name: "",
     check: false,
   });
+  // 유효성 검사 state
+  const [validData, setValidData] = useState({
+    email: false,
+    password: false,
+    passwordCheck: false,
+    name: false,
+    check: false,
+  })
+  // password state
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordCheckRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+
   // 체크박스 외 input onChange event
   const onChangeSignUpInput = (e: ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target;
@@ -59,6 +73,15 @@ const SignUp = () => {
     handleDoSignUp();
   }
 
+  // 비밀번호 체크
+  const passwordValidCheck = () => {
+    if (passwordRef !== passwordCheckRef) {
+      alert("비밀번호가 일치하지 않습니다.");
+      setValidData({ ...validData, passwordCheck: true });
+      return;
+    }
+  }
+
   return (
     <St.SignLoginContainer>
         <Spacer y={20} />
@@ -70,22 +93,22 @@ const SignUp = () => {
         <St.SectionContainer onSubmit={handleSubmitOnClick}>
           <St.Section>
             <St.Label htmlFor='id'>ID</St.Label>
-            <St.Input id='id' type='email' onChange={onChangeSignUpInput} minLength={4} name='email' placeholder='아이디는 4글자 이상 입니다.' />
+            <St.Input id='id' type='email' onChange={onChangeSignUpInput} ref={emailRef} minLength={4} name='email' placeholder='아이디는 4글자 이상 입니다.' />
             <St.InputValueValidation>형식에 맞도록 아이디를 설정해주세요.</St.InputValueValidation>
           </St.Section>
           <St.Section>
             <St.Label htmlFor='pw'>PASSWORD</St.Label>
-            <St.Input id='pw' type='password' onChange={onChangeSignUpInput} minLength={8} maxLength={20} name='password' placeholder='비밀번호는 8~20글자입니다.' />
+            <St.Input id='pw' type='password' onChange={onChangeSignUpInput} ref={passwordRef} minLength={8} maxLength={20} name='password' placeholder='비밀번호는 8~20글자입니다.' />
             <St.InputValueValidation>형식에 맞도록 비밀번호를 설정해주세요.</St.InputValueValidation>
           </St.Section>
           <St.Section>
             <St.Label htmlFor='pwc'>PASSWORD CHECK</St.Label>
-            <St.Input id='pwc' type='password' onChange={onChangeSignUpInput} minLength={8} maxLength={20} name='passwordCheck' placeholder='비밀번호를 한 번 더 적어주세요.' />
-            <St.InputValueValidation>기존에 적은 비밀번호와 일치하지 않습니다.</St.InputValueValidation>
+            <St.Input id='pwc' type='password' onChange={onChangeSignUpInput} ref={passwordCheckRef} minLength={8} maxLength={20} name='passwordCheck' placeholder='비밀번호를 한 번 더 적어주세요.' />
+            <St.InputValueValidation>비밀번호가 일치하지 않습니다.</St.InputValueValidation>
           </St.Section>
           <St.Section>
-            <St.Label htmlFor='nickname'>닉네임</St.Label>
-            <St.Input id='nickname' type='text' onChange={onChangeSignUpInput} minLength={2} maxLength={8} name='nickname' placeholder='닉네임은 2~8글자 한글만 입력가능합니다.' />
+            <St.Label htmlFor='name'>닉네임</St.Label>
+            <St.Input id='name' type='text' onChange={onChangeSignUpInput} ref={nameRef} minLength={2} maxLength={8} name='name' placeholder='닉네임은 2~8글자 한글만 입력가능합니다.' />
             <St.InputValueValidation>형식에 맞도록 닉네임을 설정해주세요.</St.InputValueValidation>
           </St.Section>
           <St.Section>
