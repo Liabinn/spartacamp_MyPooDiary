@@ -6,7 +6,6 @@ import {
   StListWrapper,
   StMapContainer,
   StPlaceName,
-  StAddress,
   StTab,
   StTabContainer
 } from "@/app/styledComponents/home/StLocationList";
@@ -32,7 +31,6 @@ const LocationList = () => {
     (state: { location: { restrooms: Location[] } }) => state.location
   );
 
-
   const { stores } = useSelector(
     (state: { location: { stores: Location[] } }) => state.location
   );
@@ -40,7 +38,6 @@ const LocationList = () => {
   console.log(stores);
 
   const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&libraries=services,clusterer&autoload=false`;
-
 
   return (
     <>
@@ -76,27 +73,10 @@ const LocationList = () => {
         )}
       </StListContainer>
 
-
-      {selectedTab === "화장실" ? (
-        <KakaoMap keyword1="화장실"></KakaoMap>
-      ) : (
-        <KakaoMap keyword1="편의점"></KakaoMap>
-      )}
-
       <StMapContainer>
         {/* 프롭스 로사용해서 프롭스만 재지정 */}
         <KakaoMap keyword1={selectedTab} setKeyword={setSelectedTab}></KakaoMap>
-        {/* {selectedTab === "화장실" ? (
-          <>
-            <RestroomMap />
-          </>
-        ) : (
-          <>
-            <StoreMap />
-          </>
-        )} */}
       </StMapContainer>
-
     </>
   );
 };
