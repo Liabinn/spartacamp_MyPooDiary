@@ -5,7 +5,7 @@ import Spacer from "@/components/ui/Spacer";
 import axios from "axios";
 import moment from "moment";
 import { useEffect, useState } from "react";
-import "react-calendar/dist/Calendar.css";
+import { StyleCalendar } from "../styledComponents/profile/StyleCalendar";
 import { DateDiary, GetDiary, Value } from "./model/profile";
 
 const ProfilePage = () => {
@@ -76,7 +76,7 @@ const ProfilePage = () => {
   });
 
   //데이터에서 날짜만 빼기
-  const dayList = diarys?.map((dairy) => dairy.date);
+  const dayList = diarys?.map((diary) => diary.date);
   //달력에 추가할 컨텐츠
   const addContent = ({ date }: any) => {
     // 해당 날짜(하루)에 추가할 컨텐츠의 배열
@@ -91,39 +91,24 @@ const ProfilePage = () => {
     // date(각 날짜)가  리스트의 날짜와 일치하면 해당 컨텐츠(이모티콘) 추가
     if (dayList!.find((day) => day === moment(date).format("YYYY.MM.DD"))) {
       if (diaryCondition === "😄") {
-        contents.push(
-          <St.TileContents>
-            <St.PooImage src="/assets/빨간똥.png" />
-            <St.TileP>{diaryToiletNumber}</St.TileP>
-          </St.TileContents>
-        );
+        contents.push(<img src="/assets/빨간똥.png" />);
       } else if (diaryCondition === "😐") {
-        contents.push(
-          <St.TileContents>
-            <St.PooImage src="/assets/주황똥.png" />
-            <St.TileP>{diaryToiletNumber}</St.TileP>
-          </St.TileContents>
-        );
+        contents.push(<img src="/assets/주황똥.png" />);
       } else if (diaryCondition === "😣") {
-        contents.push(
-          <St.TileContents>
-            <St.PooImage src="/assets/초록똥.png" />
-            <St.TileP>{diaryToiletNumber}</St.TileP>
-          </St.TileContents>
-        );
+        contents.push(<img src="/assets/초록똥.png" />);
       } else if (diaryCondition === "😫") {
-        contents.push(
-          <St.TileContents>
-            <St.PooImage src="/assets/파란똥.png" />
-            <St.TileP>{diaryToiletNumber}</St.TileP>
-          </St.TileContents>
-        );
+        contents.push(<img src="/assets/파란똥.png" />);
       }
     }
-    return <div>{contents}</div>; // 각 날짜마다 해당 요소가 들어감
+    return (
+      <St.TileContents>
+        {contents}
+        <p>{diaryToiletNumber}</p>
+      </St.TileContents>
+    ); // 각 날짜마다 해당 요소가 들어감
   };
 
-  //해당 날짜에 일기가 있으면 일지 없으면 작성란
+  //일지 토글
   const writeHandle = () => {
     setIsOpen(true);
   };
@@ -167,11 +152,12 @@ const ProfilePage = () => {
 
   return (
     <St.Container>
-      <St.Avatar src="../../../assets/defaultAvatar.JPG" />
-      <St.Nickname>화장실 급해요</St.Nickname>
-      <St.Id>ddongssaja</St.Id>
-
-      <St.StyleCalendar
+      <Spacer y={40} />
+      <St.Nickname>'화장실 급해요' 님의 일지</St.Nickname>
+      <Spacer y={20} />
+      <St.Id>ddongssaja@nbc.com</St.Id>
+      <Spacer y={40} />
+      <StyleCalendar
         locale="en"
         onChange={onChange}
         value={value}
@@ -196,6 +182,7 @@ const ProfilePage = () => {
                         name={editToiletNumber}
                         value={item}
                         onChange={(e) => setEditToiletNumber(e.target.value)}
+                        defaultChecked={item == dateDiary?.toiletNumber}
                       />
                       {item}
                     </St.RadioSelect>
@@ -213,6 +200,7 @@ const ProfilePage = () => {
                         name={editCondition}
                         value={item}
                         onChange={(e) => setEditCondition(e.target.value)}
+                        defaultChecked={item == dateDiary?.condition}
                       />
                       {item}
                     </St.RadioSelect>
@@ -337,7 +325,6 @@ const ProfilePage = () => {
           </St.DiaryContainer>
         )
       ) : (
-        // <Button text="일지 추가하기" handler={()=>{setWriteDiary(true)}} />
         ""
       )}
       <Spacer y={30} />

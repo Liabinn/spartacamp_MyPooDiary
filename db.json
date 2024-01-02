@@ -90,12 +90,36 @@
       "id": 14
     },
     {
-      "toiletNumber": "0",
-      "condition": "😐",
+      "toiletNumber": " 1",
+      "condition": "😣",
       "meal": "떡국",
       "date": "2024.01.01",
       "comment": "이젠 더 이상 미룰 곳이 없다!",
       "id": 15
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "밥",
+      "date": "2023.12.22",
+      "comment": "똥이 시원하게 나오지 않아..",
+      "id": 16
+    },
+    {
+      "toiletNumber": " 2",
+      "condition": "😣",
+      "meal": "된장국",
+      "date": "2023.12.16",
+      "comment": "",
+      "id": 17
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😣",
+      "meal": "밥",
+      "date": "2024.01.02",
+      "comment": "",
+      "id": 18
     }
   ],
   "reviews": []
