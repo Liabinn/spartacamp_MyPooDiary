@@ -156,7 +156,7 @@ const ProfilePage = () => {
       <St.Nickname>'화장실 급해요' 님의 일지</St.Nickname>
       <Spacer y={20} />
       <St.Id>ddongssaja@nbc.com</St.Id>
-      <Spacer y={40} />
+      <Spacer y={20} />
       <StyleCalendar
         locale="en"
         onChange={onChange}

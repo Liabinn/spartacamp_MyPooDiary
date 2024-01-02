@@ -11,115 +11,11 @@
     },
     {
       "toiletNumber": "0",
-      "condition": "😐",
+      "condition": "😣",
       "meal": "햄버거",
       "date": "2023.12.15",
       "id": 2,
       "comment": "똥 잘쌌다"
-    },
-    {
-      "toiletNumber": "4",
-      "condition": "😫",
-      "meal": "양배추쌈",
-      "date": "2023.12.29",
-      "id": 3,
-      "comment": "똥 잘쌌다"
-    },
-    {
-      "toiletNumber": "0",
-      "condition": "😫",
-      "meal": "라면",
-      "date": "2023.12.25",
-      "id": 5,
-      "comment": "똥 잘쌌다"
-    },
-    {
-      "toiletNumber": " 3",
-      "condition": "😄",
-      "meal": "눈사람",
-      "date": "2023.12.28",
-      "id": 7,
-      "comment": "똥 잘쌌다"
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😣",
-      "meal": "잡채",
-      "date": "2023.12.26",
-      "id": 9,
-      "comment": "똥 잘쌌다"
-    },
-    {
-      "toiletNumber": " 2",
-      "condition": "😐",
-      "meal": "케이크, 마라탕",
-      "date": "2023.12.30",
-      "comment": "똥이 핑크색 이었어요",
-      "id": 10
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😫",
-      "meal": "보쌈",
-      "date": "2023.12.27",
-      "comment": "저리가",
-      "id": 11
-    },
-    {
-      "toiletNumber": " 2",
-      "condition": "😣",
-      "meal": "양배추",
-      "date": "2023.12.31",
-      "comment": "",
-      "id": 12
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😣",
-      "meal": "마라샹궈",
-      "date": "2023.12.24",
-      "comment": "똥꼬에 불난다..화재진압",
-      "id": 13
-    },
-    {
-      "toiletNumber": "0",
-      "condition": "😫",
-      "meal": "삼겹살",
-      "date": "2023.12.23",
-      "comment": "똥 싸고 싶어",
-      "id": 14
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😣",
-      "meal": "떡국",
-      "date": "2024.01.01",
-      "comment": "이젠 더 이상 미룰 곳이 없다!",
-      "id": 15
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😐",
-      "meal": "밥",
-      "date": "2023.12.22",
-      "comment": "똥이 시원하게 나오지 않아..",
-      "id": 16
-    },
-    {
-      "toiletNumber": " 2",
-      "condition": "😣",
-      "meal": "된장국",
-      "date": "2023.12.16",
-      "comment": "",
-      "id": 17
-    },
-    {
-      "toiletNumber": " 1",
-      "condition": "😣",
-      "meal": "밥",
-      "date": "2024.01.02",
-      "comment": "",
-      "id": 18
     }
   ],
   "reviews": []
