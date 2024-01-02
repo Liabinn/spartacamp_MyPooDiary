@@ -95,7 +95,7 @@ const Login = () => {
         <Spacer y={20} />
         <hr />
         <Spacer y={20} />
-        <St.SectionContainer onSubmit={handleSubmitOnClick}>
+        <St.SectionFormContainer onSubmit={handleSubmitOnClick}>
           <St.Section>
             <St.Label htmlFor='login_id'>ID</St.Label>
             <St.Input id='login_id' type='email' name='email' onChange={onChangeLoginInput} minLength={4} placeholder='아이디는 4글자 이상 입니다.' />
@@ -105,7 +105,7 @@ const Login = () => {
             <St.Input id='login_pw' type='password' name='password' onChange={onChangeLoginInput} minLength={8} maxLength={20} placeholder='비밀번호는 8~20글자입니다.' />
           </St.Section>
         <St.SignLoginBtn type='submit'>로그인</St.SignLoginBtn>
-        </St.SectionContainer>
+        </St.SectionFormContainer>
       </St.SignLoginContainer>
   )
 }
