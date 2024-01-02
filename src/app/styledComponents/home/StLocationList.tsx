@@ -46,6 +46,7 @@ export const StAddress = tw.p`
 export const StGender = tw.p`
   text-[1.667rem]
 `;
+
 export const StMapContainer = tw.div`
   flex 
   flex-col 
@@ -54,3 +55,4 @@ export const StMapContainer = tw.div`
   w-full 
   h-screen
 `;
+

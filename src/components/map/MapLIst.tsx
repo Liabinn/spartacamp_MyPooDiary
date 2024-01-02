@@ -22,8 +22,12 @@ const MapLIst: React.FC<MapListProps> = ({ keyword, setKeyword }) => {
     <St.maplistConstainer>
       <St.maplistTop>맵리스트</St.maplistTop>
       <St.maplistContentBtnBox>
-        <div onClick={() => setKeyword("편의점")}>편의점</div>
-        <div onClick={() => setKeyword("화장실")}>화장실</div>
+        <St.maplistContentBoxBtn onClick={() => setKeyword("편의점")}>
+          편의점
+        </St.maplistContentBoxBtn>
+        <St.maplistContentBoxBtn onClick={() => setKeyword("화장실")}>
+          화장실
+        </St.maplistContentBoxBtn>
       </St.maplistContentBtnBox>
       {data
         ?.filter((item: any) => {
