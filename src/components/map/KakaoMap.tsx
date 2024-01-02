@@ -128,7 +128,9 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
         }
       );
     });
+
   }, [map, keyword1]);
+
 
   return (
     <>

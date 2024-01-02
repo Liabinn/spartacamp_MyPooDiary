@@ -4,6 +4,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { store } from "../../redux/configStore/store";
 import { Provider as ReduxProvider } from "react-redux";
+
 type Props = {
   children: React.ReactNode;
 };
