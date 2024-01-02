@@ -7,10 +7,10 @@ import {
   StGender,
   StTab,
   StTabContainer,
-  StListContainer
+  StListContainer,
+  StMapContainer
 } from "@/app/styledComponents/home/StLocationList";
 import React, { useState } from "react";
-import { StMapContainer } from "@/app/styledComponent/home/StLocationList";
 import Script from "next/script";
 import KakaoMap from "../map/KakaoMap";
 

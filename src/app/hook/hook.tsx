@@ -4,10 +4,10 @@ import { mapKeywordPut } from "../api/api";
 export const usePlaceKeywordMutation = () => {
   const mutation = useMutation({
     mutationFn: mapKeywordPut,
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       console.log("성공", data);
     },
-    onError: (error) => {
+    onError: (error: any) => {
       console.log("에러", error);
     }
   });

@@ -1,5 +1,6 @@
 "use client"; //서버에서만 사용가능한 코드를 클라이언트에서도 사용가능하게 해줌
 import { get, mapKeyword, mapKeywordPut, patch, post } from "@/app/api/api";
+import Script from "next/script";
 import React, { use, useEffect, useState } from "react";
 import {
   Circle,
@@ -23,8 +24,8 @@ interface Maker {
   title: string;
 }
 interface KakaoMapProps {
-  keyword1: string;
-  setKeyword: React.Dispatch<React.SetStateAction<string>>;
+  keyword1?: string;
+  setKeyword?: React.Dispatch<React.SetStateAction<string>>;
 }
 const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
   const [info, setInfo] = useState<Maker | null>(null);
