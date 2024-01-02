@@ -1,7 +1,8 @@
 "use client"; //서버에서만 사용가능한 코드를 클라이언트에서도 사용가능하게 해줌
-import { get, mapKeyword, mapKeywordPut, patch, post } from "@/app/api/api";
+import { get, patch, post } from "@/app/api/api";
+import { getRestrooms, getStores } from "@/redux/modules/locationSlice";
 import Script from "next/script";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Circle,
   Map,
@@ -9,7 +10,7 @@ import {
   MapTypeControl,
   ZoomControl
 } from "react-kakao-maps-sdk";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 declare global {
   interface Window {
@@ -44,6 +45,10 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
     isLoading: true
   });
 
+  const dispatch = useDispatch();
+  const locationData = useSelector((state) => state);
+  console.log(locationData);
+
   useEffect(() => {
     if (!map) return;
     const ps = new window.kakao.maps.services.Places();
@@ -69,6 +74,9 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
         keyword,
         (data: [{}], status: string) => {
           console.log("데이터 배열", data);
+          dispatch(getRestrooms(data));
+          dispatch(getStores(data));
+
           data.forEach(async (item: { [key: string]: any }) => {
             const existingData = await get("maplist");
 
@@ -128,9 +136,7 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
         }
       );
     });
-
   }, [map, keyword1]);
-
 
   return (
     <>

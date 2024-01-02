@@ -160,6 +160,62 @@
       "y": "37.47340744616851"
     },
     {
+
+      "address_name": "경남 김해시 진례면 송정리 330-3",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > GS25",
+      "distance": "232",
+      "id": "27603146",
+      "phone": "",
+      "place_name": "GS25 진례송정점",
+      "place_url": "http://place.map.kakao.com/27603146",
+      "road_address_name": "경남 김해시 진례면 송현로 33",
+      "x": "128.75211079677723",
+      "y": "35.248752826259434"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 233-3",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > CU",
+      "distance": "276",
+      "id": "27168799",
+      "phone": "055-346-3117",
+      "place_name": "CU 김해진례송정점",
+      "place_url": "http://place.map.kakao.com/27168799",
+      "road_address_name": "경남 김해시 진례면 진례로 230",
+      "x": "128.74868300328708",
+      "y": "35.24787507942975"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 239-3",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "173",
+      "id": "1822249154",
+      "phone": "",
+      "place_name": "진례5일시장 공중화장실",
+      "place_url": "http://place.map.kakao.com/1822249154",
+      "road_address_name": "",
+      "x": "128.748918100561",
+      "y": "35.2488467850959"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 17-10",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점",
+      "distance": "170",
+      "id": "2077315119",
+      "phone": "",
+      "place_name": "진례낚시편의점",
+      "place_url": "http://place.map.kakao.com/2077315119",
+      "road_address_name": "경남 김해시 진례면 서부로 548",
+      "x": "128.750220729419",
+      "y": "35.2541468562878"
+=======
       "address_name": "서울 서대문구 홍제동 산 33-88",
       "category_group_code": "",
       "category_group_name": "",
@@ -242,6 +298,7 @@
       "road_address_name": "서울 마포구 성미산로23길 70",
       "x": "126.919855982418",
       "y": "37.5663033825954"
+
     }
   ]
 }
