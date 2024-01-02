@@ -1,7 +1,6 @@
-//서버에서만 사용가능한 코드를 클라이언트에서도 사용가능하게 해줌
 "use client";
 
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -56,6 +55,7 @@ const RestroomMap = () => {
   } | null>(null);
 
   // 현재 유저 위치 가져오기
+
   const getCurrentLocation = (): Promise<Location> => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(
@@ -145,8 +145,6 @@ const RestroomMap = () => {
     queryFn: getRestroom,
     staleTime: 30000
   });
-
-  console.log(restroomNearMe);
 
   return (
     <>

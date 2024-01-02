@@ -21,8 +21,7 @@ const Provider = ({ children }: Props) => {
   );
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
-
+      {children}ㄴㄴㄴ
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );

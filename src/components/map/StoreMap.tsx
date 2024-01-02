@@ -129,7 +129,7 @@ const StoreMap = () => {
 
   useEffect(() => {
     getCurrentLocation();
-    // getRestroom();
+    getconvenienceStore();
   }, [map]);
 
   // 유저 현재 위치 전역 관리
@@ -142,11 +142,12 @@ const StoreMap = () => {
   // 현재 유저 근처에 있는 편의점 전역관리
   const { data: convenienceStore } = useQuery({
     queryKey: ["convenienceStore"],
-    queryFn: getconvenienceStore,
-    staleTime: 30000
+    queryFn: getconvenienceStore
+    // staleTime: 30000
   });
 
-  console.log(convenienceStore);
+  console.log(currentLocation);
+  console.log(markers);
   return (
     <>
       <Map
