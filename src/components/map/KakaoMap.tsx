@@ -8,6 +8,7 @@ import {
   MapTypeControl,
   ZoomControl
 } from "react-kakao-maps-sdk";
+import { useSelector } from "react-redux";
 
 declare global {
   interface Window {
@@ -15,6 +16,8 @@ declare global {
   }
 }
 
+//카카오맵 API키 .env.local에 저장한거에서 가져옴
+const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&autoload=false&libraries=services`;
 interface Maker {
   position: { lat: number; lng: number };
   title: string;
@@ -128,7 +131,8 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
 
   return (
     <>
-      {/* 카카오맵 */}
+      <Script src={KAKAO_SDK_URL} strategy="beforeInteractive" />
+
       <Map
         center={{
           lat: 33.450701,

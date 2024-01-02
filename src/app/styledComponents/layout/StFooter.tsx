@@ -6,7 +6,7 @@ export const StFooterContainer = tw.footer`
   gap-8
   items-center
   p-12
-  bg-accentColor
+  bg-[var(--accentColor)]
   my-32
   rounded-2xl
 `;
@@ -14,14 +14,12 @@ export const StFooterContainer = tw.footer`
 export const StFooterWrapper = tw.div`
   flex
   gap-8
-  
-
 `;
 
 export const StFooterTitle = tw.p`
-  text-sm
+  text-[1.667rem]
 `;
 
 export const StFooterMenu = tw.p`
-  text-sm 
+  text-[1.667rem]
 `;

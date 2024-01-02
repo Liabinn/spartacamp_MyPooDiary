@@ -9,13 +9,13 @@ export const StTabContainer = tw.div`
 `;
 
 export const StTab = tw.div`
-  text-4xl 
+  text-[var(--p)]
   font-bold
   cursor-pointer
   shadow
   p-5
   rounded-md
-  bg-accentColor
+  bg-[var(--accentColor)]
 `;
 
 // 모든 리스트를 감싸는 컨테이너
@@ -25,6 +25,8 @@ export const StListContainer = tw.div`
 
 // 화장실 정보를 담은 카드 Wrapper
 export const StListWrapper = tw.ul`
+  flex
+  flex-col
   w-full 
   gap-5 
   shadow-lg 
@@ -34,14 +36,13 @@ export const StListWrapper = tw.ul`
 
 // 화장실 이름
 export const StPlaceName = tw.p`
-  text-base
-
+  text-[1.867rem]
 `;
 
 export const StAddress = tw.p`
-  text-sm
+  text-[1.667rem]
 `;
 
 export const StGender = tw.p`
-  text-sm
+  text-[1.667rem]
 `;
