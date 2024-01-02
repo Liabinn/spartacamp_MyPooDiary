@@ -10,6 +10,7 @@ import {
   MapTypeControl,
   ZoomControl
 } from "react-kakao-maps-sdk";
+import { useSelector } from "react-redux";
 
 declare global {
   interface Window {
@@ -123,6 +124,10 @@ const KakaoMap = () => {
       });
     });
   }, [map]);
+
+  // 아래 test는 리덕스 툴킷 테스트에요. 삭제하셔도 됩니다!
+  const test = useSelector((state) => state);
+  console.log(test);
 
   return (
     <>

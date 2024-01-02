@@ -1,14 +1,12 @@
 import React from "react";
 import { StHomeMap } from "@/app/styledComponents/home/StHomeMap";
 import Spacer from "../ui/Spacer";
-// import KakaoMap from "../map/KakaoMap";
 import Script from "next/script";
-import KakaoMapTest from "../map/StoreMap";
 import LocationList from "./locationList";
-import StoreMap from "../map/StoreMap";
-import RestroomMap from "../map/RestroomMap ";
+import { useSelector } from "react-redux";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&libraries=services,clusterer&autoload=false`;
+
 const HomeMap = () => {
   return (
     <StHomeMap>
