@@ -6,20 +6,31 @@
       "toiletNumber": "3",
       "condition": "😐",
       "meal": "피자",
-      "date": "2023.12.08",
-      "comment": "똥 잘쌌다"
+      "date": "2023.12.08"
     },
     {
       "toiletNumber": "0",
-      "condition": "😣",
+      "condition": "😐",
       "meal": "햄버거",
       "date": "2023.12.15",
-      "id": 2,
+      "id": 2
       "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": " 1",
       "condition": "😐",
+      "meal": "국",
+      "date": "2024.01.04",
+      "comment": "하하ㅏㅎ",
+      "id": 3
+    },
+    {
+      "toiletNumber": " 3",
+      "condition": "😣",
+      "meal": "ㅎㅎㅎㅇㄹ",
+      "date": "2024.01.05",
+      "comment": "",
+      "id": 4
       "meal": "ㅇㄹㅇㄹㅇ",
       "date": "2024.01.04",
       "comment": "ㄹㅇㄹㅇㄹㅇ",
@@ -48,6 +59,7 @@
       "date": "2024.01.06",
       "comment": "666666666666",
       "id": 6
+
     }
   ],
   "maplist": [
@@ -190,6 +202,90 @@
       "road_address_name": "서울 관악구 법원단지5길 5",
       "x": "126.91939101685",
       "y": "37.4745944995361"
+    },
+    {
+      "address_name": "서울 관악구 신림동 763-9",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "198",
+      "id": "26332051",
+      "phone": "",
+      "place_name": "미성동주민센터 개방화장실",
+      "place_url": "http://place.map.kakao.com/26332051",
+      "road_address_name": "서울 관악구 난곡로 249",
+      "x": "126.91555795759066",
+      "y": "37.476150569123675"
+    },
+    {
+      "address_name": "서울 관악구 신림동 616-1",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "299",
+      "id": "26331564",
+      "phone": "",
+      "place_name": "난곡주유소 개방화장실",
+      "place_url": "http://place.map.kakao.com/26331564",
+      "road_address_name": "서울 관악구 난곡로 206",
+      "x": "126.91877278037403",
+      "y": "37.47340744616851"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 330-3",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > GS25",
+      "distance": "232",
+      "id": "27603146",
+      "phone": "",
+      "place_name": "GS25 진례송정점",
+      "place_url": "http://place.map.kakao.com/27603146",
+      "road_address_name": "경남 김해시 진례면 송현로 33",
+      "x": "128.75211079677723",
+      "y": "35.248752826259434"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 233-3",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > CU",
+      "distance": "276",
+      "id": "27168799",
+      "phone": "055-346-3117",
+      "place_name": "CU 김해진례송정점",
+      "place_url": "http://place.map.kakao.com/27168799",
+      "road_address_name": "경남 김해시 진례면 진례로 230",
+      "x": "128.74868300328708",
+      "y": "35.24787507942975"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 239-3",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "173",
+      "id": "1822249154",
+      "phone": "",
+      "place_name": "진례5일시장 공중화장실",
+      "place_url": "http://place.map.kakao.com/1822249154",
+      "road_address_name": "",
+      "x": "128.748918100561",
+      "y": "35.2488467850959"
+    },
+    {
+      "address_name": "경남 김해시 진례면 송정리 17-10",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점",
+      "distance": "170",
+      "id": "2077315119",
+      "phone": "",
+      "place_name": "진례낚시편의점",
+      "place_url": "http://place.map.kakao.com/2077315119",
+      "road_address_name": "경남 김해시 진례면 서부로 548",
+      "x": "128.750220729419",
+      "y": "35.2541468562878"
     }
   ]
 }

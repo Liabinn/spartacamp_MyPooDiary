@@ -6,16 +6,22 @@ export const StTabContainer = tw.div`
   gap-12
   justify-center
   my-14
+  
 `;
 
 export const StTab = tw.div`
-  text-[var(--p)]
-  font-bold
-  cursor-pointer
-  shadow
-  p-5
-  rounded-md
+  flex
+  justify-center
+  items-center
+  w-60
+  h-20
+  rounded-2xl
   bg-[var(--accentColor)]
+  hover:bg-[var(--primaryColor)]
+  hover:text-[var(--accentColor)]
+  focus:bg-[var(--primaryColor)]
+  focus:text-[var(--accentColor)]
+  cursor-pointer
 `;
 
 // 모든 리스트를 감싸는 컨테이너
@@ -55,4 +61,3 @@ export const StMapContainer = tw.div`
   w-full 
   h-screen
 `;
-
