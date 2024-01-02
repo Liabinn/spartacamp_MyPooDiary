@@ -18,6 +18,34 @@
   ],
   "maplist": [
     {
+      "address_name": "서울 관악구 신림동 763-9",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "198",
+      "id": "26332051",
+      "phone": "",
+      "place_name": "미성동주민센터 개방화장실",
+      "place_url": "http://place.map.kakao.com/26332051",
+      "road_address_name": "서울 관악구 난곡로 249",
+      "x": "126.91555795759066",
+      "y": "37.476150569123675"
+    },
+    {
+      "address_name": "서울 관악구 신림동 616-1",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "299",
+      "id": "26331564",
+      "phone": "",
+      "place_name": "난곡주유소 개방화장실",
+      "place_url": "http://place.map.kakao.com/26331564",
+      "road_address_name": "서울 관악구 난곡로 206",
+      "x": "126.91877278037403",
+      "y": "37.47340744616851"
+    },
+    {
       "address_name": "서울 관악구 신림동 602-1",
       "category_group_code": "CS2",
       "category_group_name": "편의점",
@@ -74,20 +102,6 @@
       "y": "37.4771488265778"
     },
     {
-      "address_name": "서울 관악구 신림동 608-18",
-      "category_group_code": "CS2",
-      "category_group_name": "편의점",
-      "category_name": "가정,생활 > 편의점 > CU",
-      "distance": "208",
-      "id": "1725060909",
-      "phone": "",
-      "place_name": "CU 관악햇살점",
-      "place_url": "http://place.map.kakao.com/1725060909",
-      "road_address_name": "서울 관악구 법원단지5길 5",
-      "x": "126.919383098426",
-      "y": "37.4745989991828"
-    },
-    {
       "address_name": "서울 관악구 신림동 756-16",
       "category_group_code": "CS2",
       "category_group_name": "편의점",
@@ -100,6 +114,20 @@
       "road_address_name": "서울 관악구 난곡로 235",
       "x": "126.916504036558",
       "y": "37.4752961833527"
+    },
+    {
+      "address_name": "서울 관악구 신림동 608-18",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > CU",
+      "distance": "208",
+      "id": "1725060909",
+      "phone": "",
+      "place_name": "CU 관악햇살점",
+      "place_url": "http://place.map.kakao.com/1725060909",
+      "road_address_name": "서울 관악구 법원단지5길 5",
+      "x": "126.919383098426",
+      "y": "37.4745989991828"
     },
     {
       "address_name": "서울 관악구 신림동 763-19",
@@ -128,34 +156,6 @@
       "road_address_name": "서울 관악구 법원단지5길 5",
       "x": "126.91939101685",
       "y": "37.4745944995361"
-    },
-    {
-      "address_name": "서울 관악구 신림동 763-9",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "198",
-      "id": "26332051",
-      "phone": "",
-      "place_name": "미성동주민센터 개방화장실",
-      "place_url": "http://place.map.kakao.com/26332051",
-      "road_address_name": "서울 관악구 난곡로 249",
-      "x": "126.91555795759066",
-      "y": "37.476150569123675"
-    },
-    {
-      "address_name": "서울 관악구 신림동 616-1",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "299",
-      "id": "26331564",
-      "phone": "",
-      "place_name": "난곡주유소 개방화장실",
-      "place_url": "http://place.map.kakao.com/26331564",
-      "road_address_name": "서울 관악구 난곡로 206",
-      "x": "126.91877278037403",
-      "y": "37.47340744616851"
     }
   ]
 }
