@@ -3,18 +3,28 @@ import {
   StNavWrapper
 } from "@/app/styledComponents/layout/StNavBar";
 import Link from "next/link";
-import React from "react";
 
 const NavBar = () => {
+
+  let status = "not authenticated";
+
   return (
     <StNavContainer>
       <p>나의쾌변일지</p>
-
       <StNavWrapper>
-        <Link href="/">Home</Link>
-        <Link href="/map">Map</Link>
-        <Link href="/profile">Profile</Link>
-        <Link href="/login">Login</Link>
+        <Link href="/">HOME</Link>
+        <Link href="/map">MAP</Link>
+        {status === "authenticated" ? (
+          <>
+            <Link href="/profile">PROFILE</Link>
+            <div onClick={(e) => {
+              e.preventDefault();
+              alert("로그아웃 되었습니다.")
+            }}>LOGOUT</div>
+          </>
+        ) : (
+          <Link href="/login">LOGIN</Link>
+        )}
       </StNavWrapper>
     </StNavContainer>
   );

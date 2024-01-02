@@ -5,6 +5,19 @@ import Login from '@/components/login/Login'
 import SignUp from '@/components/login/SignUp'
 import Spacer from '@/components/ui/Spacer'
 
+type LoginInputType = {
+  email: string
+  password: string
+};
+
+type SignUpInputType = {
+  email: string;
+  password: string;
+  passwordCheck: string;
+  name: string;
+  check: boolean;
+};
+
 const LoginPage = () => {
 
   // 로그인-회원가입 toggle state

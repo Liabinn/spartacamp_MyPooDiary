@@ -11,8 +11,7 @@ type SignUpInputType = {
   email: string;
   password: string;
   passwordCheck: string;
-  firstname: string;
-  lastname: string;
+  name: string;
   check: boolean;
 };
 
@@ -23,9 +22,8 @@ const FORM_VALUES: SignUpInputType = {
   email: "",
   password: "",
   passwordCheck: "",
-  firstname: "",
-  lastname: "",
-  check: true,
+  name: "",
+  check: false,
 }
 
 // Message type 및 payload 초기값 설정
@@ -85,7 +83,7 @@ const SignUp = (props: SignUpInputType) => {
   };
 
   // 체크박스 event
-  const [checkBox, setCheckBox] = useState({check: true})
+  const [checkBox, setCheckBox] = useState({check: false})
   const handleOnChangeCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
     const {checked} = e.target;
     setCheckBox({check: checked});
@@ -117,14 +115,9 @@ const SignUp = (props: SignUpInputType) => {
             <St.InputValueValidation>비밀번호가 일치하지 않습니다.</St.InputValueValidation>
           </St.Section>
           <St.Section>
-            <St.Label htmlFor='firstname'>First Name</St.Label>
-            <St.Input id='firstname' type='text' onChange={handleChange} minLength={1} name='firstname' required value={values.firstname} placeholder='이름을 기입해주세요.' />
-            <St.InputValueValidation>이름을 기입해주세요.</St.InputValueValidation>
-          </St.Section>
-          <St.Section>
-            <St.Label htmlFor='lastname'>Last Name</St.Label>
-            <St.Input id='lastname' type='text' onChange={handleChange} minLength={1} name='lastname' required value={values.lastname} placeholder='성을 기입해주세요.' />
-            <St.InputValueValidation>성을 기입해주세요.</St.InputValueValidation>
+            <St.Label htmlFor='name'>Name</St.Label>
+            <St.Input id='name' type='text' onChange={handleChange} minLength={2} name='name' required value={values.name} placeholder='성을 포함한 이름을 기입해주세요.' />
+            <St.InputValueValidation>성을 포함한 이름을 기입해주세요.</St.InputValueValidation>
           </St.Section>
           <St.Section>
             <div className='flex flex-row gap-4'>
@@ -136,7 +129,7 @@ const SignUp = (props: SignUpInputType) => {
         <St.SignLoginBtn type='submit'>회원가입</St.SignLoginBtn>
         </St.SectionFormContainer>
         {loading && (
-          <div>로딩중입니다...</div>
+          <div>Loading...</div>
         )}
       </St.SignLoginContainer>
   )
