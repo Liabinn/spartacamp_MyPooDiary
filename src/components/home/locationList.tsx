@@ -1,17 +1,16 @@
 "use client";
 
 import {
-  StListWrapper,
-  StPlaceName,
   StAddress,
-  StGender,
-  StTab,
-  StTabContainer,
   StListContainer,
-  StMapContainer
+  StListWrapper,
+  StMapContainer,
+  StPlaceName,
+  StTab,
+  StTabContainer
 } from "@/app/styledComponents/home/StLocationList";
-import React, { useState } from "react";
 import Script from "next/script";
+import React, { useState } from "react";
 import KakaoMap from "../map/KakaoMap";
 
 const LocationList = () => {

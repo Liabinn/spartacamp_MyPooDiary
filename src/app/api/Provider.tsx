@@ -1,9 +1,9 @@
 "use client"; // 여기는 클라이언트 컴포넌트
-import React from "react";
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { store } from "../../redux/configStore/store";
+import React from "react";
 import { Provider as ReduxProvider } from "react-redux";
+import { store } from "../../redux/configStore/store";
 
 type Props = {
   children: React.ReactNode;

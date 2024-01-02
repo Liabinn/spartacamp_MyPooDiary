@@ -1,9 +1,7 @@
-import React from "react";
 import { StHomeMap } from "@/app/styledComponents/home/StHomeMap";
-import Spacer from "../ui/Spacer";
 import Script from "next/script";
+import Spacer from "../ui/Spacer";
 import LocationList from "./locationList";
-import { useSelector } from "react-redux";
 
 const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&libraries=services,clusterer&autoload=false`;
 
