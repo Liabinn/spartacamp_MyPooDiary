@@ -15,7 +15,7 @@ import Script from "next/script";
 import KakaoMap from "../map/KakaoMap";
 
 const LocationList = () => {
-  const [selectedTab, setSelectedTab] = useState("화장실");
+  const [selectedTab, setSelectedTab] = useState<string>("화장실");
   const onClickTabs = (e: React.MouseEvent<HTMLInputElement>) => {
     setSelectedTab(e.currentTarget.innerText);
   };
@@ -50,7 +50,8 @@ const LocationList = () => {
       </StListContainer>
 
       <StMapContainer>
-        <KakaoMap></KakaoMap>
+        {/* 프롭스로사용해서 프롭스만 재지정 */}
+        <KakaoMap keyword1={selectedTab} setKeyword={setSelectedTab}></KakaoMap>
         {/* {selectedTab === "화장실" ? (
           <>
             <RestroomMap />
