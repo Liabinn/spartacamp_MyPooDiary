@@ -7,8 +7,15 @@ import { usePlaceKeywordMutation } from "@/app/hook/hook";
 interface MapListProps {
   keyword: string;
   setKeyword: React.Dispatch<React.SetStateAction<string>>;
+  list: any[];
+  setList: React.Dispatch<React.SetStateAction<any[]>>;
 }
-const MapLIst: React.FC<MapListProps> = ({ keyword, setKeyword }) => {
+const MapLIst: React.FC<MapListProps> = ({
+  keyword,
+  setKeyword,
+  list,
+  setList
+}) => {
   const placeKeywordMutation = usePlaceKeywordMutation();
   const { data, isLoading, error } = useQuery({
     queryKey: ["maplist"],
@@ -29,7 +36,7 @@ const MapLIst: React.FC<MapListProps> = ({ keyword, setKeyword }) => {
           화장실
         </St.maplistContentBoxBtn>
       </St.maplistContentBtnBox>
-      {data
+      {list
         ?.filter((item: any) => {
           if (keyword === "화장실") {
             return item.category_name === "가정,생활 > 화장실";

@@ -1,5 +1,12 @@
 "use client"; //서버에서만 사용가능한 코드를 클라이언트에서도 사용가능하게 해줌
-import { get, patch, post } from "@/app/api/api";
+import {
+  get,
+  mapKeyword,
+  mapKeywordPut,
+  patch,
+  post,
+  resetMapList
+} from "@/app/api/api";
 import { getRestrooms, getStores } from "@/redux/modules/locationSlice";
 import Script from "next/script";
 import React, { useEffect, useState } from "react";
@@ -27,8 +34,15 @@ interface Maker {
 interface KakaoMapProps {
   keyword1?: string;
   setKeyword?: React.Dispatch<React.SetStateAction<string>>;
+  list: any[];
+  setList: React.Dispatch<React.SetStateAction<any[]>>;
 }
-const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
+const KakaoMap: React.FC<KakaoMapProps> = ({
+  keyword1,
+  setKeyword,
+  list,
+  setList
+}) => {
   const [info, setInfo] = useState<Maker | null>(null);
   const [markers, setMarkers] = useState<Maker[]>([]);
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -77,6 +91,7 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
           dispatch(getRestrooms(data));
           dispatch(getStores(data));
 
+          setList(data);
           data.forEach(async (item: { [key: string]: any }) => {
             const existingData = await get("maplist");
 
@@ -86,7 +101,7 @@ const KakaoMap: React.FC<KakaoMapProps> = ({ keyword1, setKeyword }) => {
               )
             ) {
               // 데이터가 이미 있으면 업데이트
-              await patch(item);
+              // await patch(item);
             } else {
               // 데이터가 없으면 추가
               await post(item);

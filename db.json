@@ -9,19 +9,91 @@
       "toiletNumber": "3",
       "condition": "😐",
       "meal": "피자",
-      "date": "2023.12.08",
-      "comment": "똥 잘쌌다"
+      "date": "2023.12.08"
     },
     {
       "toiletNumber": "0",
-      "condition": "😣",
+      "condition": "😐",
       "meal": "햄버거",
       "date": "2023.12.15",
-      "id": 2,
+      "id": 2
       "comment": "똥 잘쌌다"
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "국",
+      "date": "2024.01.04",
+      "comment": "하하ㅏㅎ",
+      "id": 3
+    },
+    {
+      "toiletNumber": " 3",
+      "condition": "😣",
+      "meal": "ㅎㅎㅎㅇㄹ",
+      "date": "2024.01.05",
+      "comment": "",
+      "id": 4
+      "meal": "ㅇㄹㅇㄹㅇ",
+      "date": "2024.01.04",
+      "comment": "ㄹㅇㄹㅇㄹㅇ",
+      "id": 3
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "ㅇㄹㄴㅇㄹ",
+      "date": "2024.01.03",
+      "comment": "ㄴㅇㄹㄴㅇㄹㄴㄴㅇ",
+      "id": 4
+    },
+    {
+      "toiletNumber": "0",
+      "condition": "😄",
+      "meal": "ㅇㄹㅇㄹㅇㄹㅇ",
+      "date": "2024.01.05",
+      "comment": "3434343",
+      "id": 5
+    },
+    {
+      "toiletNumber": " 1",
+      "condition": "😐",
+      "meal": "6666666",
+      "date": "2024.01.06",
+      "comment": "666666666666",
+      "id": 6
+
     }
   ],
   "maplist": [
+    {
+      "address_name": "서울 관악구 신림동 763-9",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "198",
+      "id": "26332051",
+      "phone": "",
+      "place_name": "미성동주민센터 개방화장실",
+      "place_url": "http://place.map.kakao.com/26332051",
+      "road_address_name": "서울 관악구 난곡로 249",
+      "x": "126.91555795759066",
+      "y": "37.476150569123675"
+    },
+    {
+      "address_name": "서울 관악구 신림동 616-1",
+      "category_group_code": "",
+      "category_group_name": "",
+      "category_name": "가정,생활 > 화장실",
+      "distance": "299",
+      "id": "26331564",
+      "phone": "",
+      "place_name": "난곡주유소 개방화장실",
+      "place_url": "http://place.map.kakao.com/26331564",
+      "road_address_name": "서울 관악구 난곡로 206",
+      "x": "126.91877278037403",
+      "y": "37.47340744616851"
+    },
     {
       "address_name": "서울 관악구 신림동 602-1",
       "category_group_code": "CS2",
@@ -79,20 +151,6 @@
       "y": "37.4771488265778"
     },
     {
-      "address_name": "서울 관악구 신림동 608-18",
-      "category_group_code": "CS2",
-      "category_group_name": "편의점",
-      "category_name": "가정,생활 > 편의점 > CU",
-      "distance": "208",
-      "id": "1725060909",
-      "phone": "",
-      "place_name": "CU 관악햇살점",
-      "place_url": "http://place.map.kakao.com/1725060909",
-      "road_address_name": "서울 관악구 법원단지5길 5",
-      "x": "126.919383098426",
-      "y": "37.4745989991828"
-    },
-    {
       "address_name": "서울 관악구 신림동 756-16",
       "category_group_code": "CS2",
       "category_group_name": "편의점",
@@ -105,6 +163,20 @@
       "road_address_name": "서울 관악구 난곡로 235",
       "x": "126.916504036558",
       "y": "37.4752961833527"
+    },
+    {
+      "address_name": "서울 관악구 신림동 608-18",
+      "category_group_code": "CS2",
+      "category_group_name": "편의점",
+      "category_name": "가정,생활 > 편의점 > CU",
+      "distance": "208",
+      "id": "1725060909",
+      "phone": "",
+      "place_name": "CU 관악햇살점",
+      "place_url": "http://place.map.kakao.com/1725060909",
+      "road_address_name": "서울 관악구 법원단지5길 5",
+      "x": "126.919383098426",
+      "y": "37.4745989991828"
     },
     {
       "address_name": "서울 관악구 신림동 763-19",
@@ -163,7 +235,6 @@
       "y": "37.47340744616851"
     },
     {
-
       "address_name": "경남 김해시 진례면 송정리 330-3",
       "category_group_code": "CS2",
       "category_group_name": "편의점",
@@ -218,90 +289,6 @@
       "road_address_name": "경남 김해시 진례면 서부로 548",
       "x": "128.750220729419",
       "y": "35.2541468562878"
-=======
-      "address_name": "서울 서대문구 홍제동 산 33-88",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "285",
-      "id": "26333220",
-      "phone": "",
-      "place_name": "안산 자락길 북까페 개방화장실",
-      "place_url": "http://place.map.kakao.com/26333220",
-      "road_address_name": "",
-      "x": "126.94976341136886",
-      "y": "37.57745979943452"
-    },
-    {
-      "address_name": "서울 서대문구 현저동 107-479",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "294",
-      "id": "26334984",
-      "phone": "",
-      "place_name": "현저 개방화장실",
-      "place_url": "http://place.map.kakao.com/26334984",
-      "road_address_name": "",
-      "x": "126.95308317669016",
-      "y": "37.57298051965211"
-    },
-    {
-      "address_name": "서울 서대문구 연희동 산 118-1",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "230",
-      "id": "1626393678",
-      "phone": "",
-      "place_name": "궁동공원 화장실",
-      "place_url": "http://place.map.kakao.com/1626393678",
-      "road_address_name": "",
-      "x": "126.923219435561",
-      "y": "37.57014385867"
-    },
-    {
-      "address_name": "서울 서대문구 연희동 446-76",
-      "category_group_code": "",
-      "category_group_name": "",
-      "category_name": "가정,생활 > 화장실",
-      "distance": "263",
-      "id": "26331695",
-      "phone": "",
-      "place_name": "삼미상사 서부주유소 개방화장실",
-      "place_url": "http://place.map.kakao.com/26331695",
-      "road_address_name": "서울 서대문구 성산로 255",
-      "x": "126.918968149624",
-      "y": "37.567740765606"
-    },
-    {
-      "address_name": "서울 서대문구 연희동 446-4",
-      "category_group_code": "CS2",
-      "category_group_name": "편의점",
-      "category_name": "가정,생활 > 편의점 > CU",
-      "distance": "264",
-      "id": "17841352",
-      "phone": "02-338-9043",
-      "place_name": "CU SK서부주유소점",
-      "place_url": "http://place.map.kakao.com/17841352",
-      "road_address_name": "서울 서대문구 성산로 255",
-      "x": "126.918954543174",
-      "y": "37.5677623801589"
-    },
-    {
-      "address_name": "서울 마포구 연남동 375-112",
-      "category_group_code": "CS2",
-      "category_group_name": "편의점",
-      "category_name": "가정,생활 > 편의점",
-      "distance": "289",
-      "id": "1161298671",
-      "phone": "02-6326-2728",
-      "place_name": "비틀비틀 연남점",
-      "place_url": "http://place.map.kakao.com/1161298671",
-      "road_address_name": "서울 마포구 성미산로23길 70",
-      "x": "126.919855982418",
-      "y": "37.5663033825954"
-
     }
   ]
 }
