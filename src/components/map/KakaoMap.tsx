@@ -8,7 +8,7 @@ import {
   resetMapList
 } from "@/app/api/api";
 import Script from "next/script";
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Circle,
   Map,
@@ -16,7 +16,7 @@ import {
   MapTypeControl,
   ZoomControl
 } from "react-kakao-maps-sdk";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 declare global {
   interface Window {
@@ -58,6 +58,10 @@ const KakaoMap: React.FC<KakaoMapProps> = ({
     isLoading: true
   });
 
+  const dispatch = useDispatch();
+  const locationData = useSelector((state) => state);
+  console.log(locationData);
+
   useEffect(() => {
     if (!map) return;
     const ps = new window.kakao.maps.services.Places();
@@ -83,6 +87,9 @@ const KakaoMap: React.FC<KakaoMapProps> = ({
         keyword,
         (data: [{}], status: string) => {
           console.log("데이터 배열", data);
+          dispatch(getRestrooms(data));
+          dispatch(getStores(data));
+
           setList(data);
           data.forEach(async (item: { [key: string]: any }) => {
             const existingData = await get("maplist");

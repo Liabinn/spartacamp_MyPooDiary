@@ -1,18 +1,25 @@
 "use client";
 
 import {
-  StListWrapper,
-  StPlaceName,
   StAddress,
-  StGender,
-  StTab,
-  StTabContainer,
   StListContainer,
-  StMapContainer
+  StListWrapper,
+  StMapContainer,
+  StPlaceName,
+  StTab,
+  StTabContainer
 } from "@/app/styledComponents/home/StLocationList";
-import React, { useState } from "react";
 import Script from "next/script";
+import React, { useState } from "react";
 import KakaoMap from "../map/KakaoMap";
+
+import { useSelector } from "react-redux";
+import { store } from "@/redux/configStore/store";
+
+type Location = {
+  address_name: string;
+  place_name: string;
+};
 
 const LocationList = () => {
   const [selectedTab, setSelectedTab] = useState<string>("화장실");
@@ -20,6 +27,16 @@ const LocationList = () => {
   const onClickTabs = (e: React.MouseEvent<HTMLInputElement>) => {
     setSelectedTab(e.currentTarget.innerText);
   };
+
+  const { restrooms } = useSelector(
+    (state: { location: { restrooms: Location[] } }) => state.location
+  );
+
+  const { stores } = useSelector(
+    (state: { location: { stores: Location[] } }) => state.location
+  );
+
+  console.log(stores);
 
   const KAKAO_SDK_URL = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_APP_JS_KEY}&libraries=services,clusterer&autoload=false`;
 
@@ -31,21 +48,28 @@ const LocationList = () => {
         <StTab onClick={onClickTabs}>편의점</StTab>
       </StTabContainer>
 
-      <p>📌 현재 나의 위치: </p>
       <StListContainer>
         {selectedTab === "화장실" ? (
           <>
-            <StListWrapper>
-              <StPlaceName>화장실 이름</StPlaceName>
-              <StAddress>주소</StAddress>
-            </StListWrapper>
+            {restrooms.map((restroom: Location) => {
+              return (
+                <StListWrapper key={restroom.place_name}>
+                  <StPlaceName>{restroom.place_name}</StPlaceName>
+                  <StAddress>{restroom.address_name}</StAddress>
+                </StListWrapper>
+              );
+            })}
           </>
         ) : (
           <>
-            <StListWrapper>
-              <StPlaceName>편의점 이름</StPlaceName>
-              <StAddress>편의점 주소</StAddress>
-            </StListWrapper>
+            {stores.map((store: Location) => {
+              return (
+                <StListWrapper key={store.place_name}>
+                  <StPlaceName>{store.place_name}</StPlaceName>
+                  <StAddress>{store.address_name}</StAddress>
+                </StListWrapper>
+              );
+            })}
           </>
         )}
       </StListContainer>

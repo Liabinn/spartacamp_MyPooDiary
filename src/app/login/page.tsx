@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, ChangeEvent, FormEvent } from "react";
-import axios from "axios";
-import * as St from "../styledComponents/login/StLogin";
 import Spacer from "@/components/ui/Spacer";
+import axios from "axios";
+import { ChangeEvent, FormEvent, useState } from "react";
+import * as St from "../styledComponents/login/StLogin";
 
 type userData = {
   email: string;

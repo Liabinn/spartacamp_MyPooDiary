@@ -6,14 +6,16 @@
       "toiletNumber": "3",
       "condition": "😐",
       "meal": "피자",
-      "date": "2023.12.08"
+      "date": "2023.12.08",
+      "comment": "똥 잘쌌다"
     },
     {
       "toiletNumber": "0",
-      "condition": "😐",
+      "condition": "😣",
       "meal": "햄버거",
       "date": "2023.12.15",
-      "id": 2
+      "id": 2,
+      "comment": "똥 잘쌌다"
     }
   ],
   "maplist": [
