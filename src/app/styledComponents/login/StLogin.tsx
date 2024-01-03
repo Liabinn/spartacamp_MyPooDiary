@@ -18,7 +18,7 @@ export const SubTitle = tw.h3`
   text-2xl
 `;
 // section 전체를 감싸는 컨테이너(form)
-export const SectionContainer = tw.form`
+export const SectionFormContainer = tw.form`
   px-20
   flex
   flex-col
