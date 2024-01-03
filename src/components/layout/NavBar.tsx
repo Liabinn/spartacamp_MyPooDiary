@@ -14,9 +14,9 @@ const NavBar = () => {
       <StNavWrapper>
         <Link href="/">HOME</Link>
         <Link href="/map">MAP</Link>
+        <Link href="/profile">PROFILE</Link>
         {status === "authenticated" ? (
           <>
-            <Link href="/profile">PROFILE</Link>
             <div onClick={(e) => {
               e.preventDefault();
               alert("로그아웃 되었습니다.")
