@@ -25,7 +25,7 @@ const MESSAGE_VALUES: MessageProps = {
   payload: "",
 }
 
-const Login = (props: LoginInputType) => {
+const Login = () => {
 
   // loading state
   const [loading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ const Login = (props: LoginInputType) => {
       // 로딩이 진행 중(로딩상태 관리)
       setLoading(true);
       // signUp 함수는 payload를 받아 supabase.auth.signUp에 전달
-      const { error } = await supabase.auth.signIn(payload);
+      const { error } = await supabase.auth.signInWithPassword(payload);
       // return 되는 error를 이용하여 handleMessage 훅으로 전달
       if (error) {
         console.log(error);
