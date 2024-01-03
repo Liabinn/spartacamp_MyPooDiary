@@ -90,7 +90,6 @@ const KakaoMap: React.FC<KakaoMapProps> = ({
           console.log("데이터 배열", data);
           dispatch(getRestrooms(data));
           dispatch(getStores(data));
-
           setList(data);
           data.forEach(async (item: { [key: string]: any }) => {
             const existingData = await get("maplist");
