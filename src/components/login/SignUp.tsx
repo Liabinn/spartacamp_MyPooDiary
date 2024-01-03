@@ -32,7 +32,7 @@ const MESSAGE_VALUES: MessageProps = {
   payload: "",
 }
 
-const SignUp = (props: SignUpInputType) => {
+const SignUp = () => {
 
   // loading state
   const [loading, setLoading] = useState(false);
